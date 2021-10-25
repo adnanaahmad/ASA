@@ -1,0 +1,25 @@
+{
+  "STRINGS": {
+    "APP_TITLE": "Alivia Security App",
+    "USERNAME": "User Name",
+    "FIRSTNAME": "First Name",
+    "LASTNAME": "Last Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "WC_TO": "Welcome To",
+    "REM_PASS": "Remember Password"
+  },
+  "BUTTONS": {
+    "LOGIN": "Login",
+    "LOGOUT": "Logout"
+  },
+  "STATUS": {
+    "DEFAULT": "DEFAULT",
+    "INFO": "INFO",
+    "SUCCESS": "SUCCESS",
+    "WARNING": "WARNING",
+    "ERROR": "ERROR",
+    "CUSTOM": "CUSTOM"
+  }
+}

@@ -2,28 +2,29 @@
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card border-0 shadow rounded-3 my-5">
-        <div class="card-body p-4 p-sm-5">
-          <h5 class="card-title text-center">Welcome To</h5>
-          <h2 class="card-title text-center mb-5">Alivia Security App</h2>
+        <div class="card-body p-4 p-sm-5" *ngIf="helperService.translated">
+          <h5 class="card-title text-center">{{ helperService.translated.STRINGS.WC_TO }}</h5>
+          <h2 class="card-title text-center mb-5">{{ helperService.translated.STRINGS.APP_TITLE }}</h2>
           <form>
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
+              <input type="email" class="form-control" id="floatingInput">
+              <label for="floatingInput">{{helperService.translated.STRINGS.EMAIL}}</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">Password</label>
+              <input type="password" class="form-control" id="floatingPassword">
+              <label for="floatingPassword">{{helperService.translated.STRINGS.PASSWORD}}</label>
             </div>
 
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
               <label class="form-check-label" for="rememberPasswordCheck">
-                Remember password
+                {{helperService.translated.STRINGS.REM_PASS}}
               </label>
             </div>
             <div class="d-grid">
-              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
-                in</button>
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
+                {{helperService.translated.BUTTONS.LOGIN}}
+              </button>
             </div>
           </form>
         </div>
