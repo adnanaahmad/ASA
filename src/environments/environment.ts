@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ai_web_server: 'http://localhost:8075',
+  ai_entity_search_server: 'http://localhost:8087',
+  ai_cmt_server: 'http://localhost:8088',
+  ai_report_server: 'http://localhost:8089',
+  ai_prevented_loss_server: 'http://localhost:8091',
+  ai_claim_tracker_server: 'http://localhost:8092'
 };
 
 /*

@@ -14,6 +14,11 @@ export interface Strings {
   CONFIRM_PASSWORD: string;
   WC_TO: string;
   REM_PASS: string;
+  LOGIN_TYPE: string;
+  REQ_FIELD: string;
+  USERNAME_PH: string;
+  PASS_PH: string;
+  LOGIN_ERROR: string;
 }
 
 export interface Buttons {

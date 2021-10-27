@@ -11,7 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
-import {HelperService} from "./services/common/helper/helper.service";
+import {HelperService} from "./shared/services/common/helper/helper.service";
 
 /**
  * AoT requires an exported function for factories

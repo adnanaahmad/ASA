@@ -8,7 +8,12 @@
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm Password",
     "WC_TO": "Welcome To",
-    "REM_PASS": "Remember Password"
+    "REM_PASS": "Remember Password",
+    "LOGIN_TYPE": "Login Type",
+    "REQ_FIELD": "This Field is required.",
+    "USERNAME_PH": "Enter Your Email/Username",
+    "PASS_PH": "Enter Your Password",
+    "LOGIN_ERROR": "Incorrect Login Details Provided."
   },
   "BUTTONS": {
     "LOGIN": "Login",

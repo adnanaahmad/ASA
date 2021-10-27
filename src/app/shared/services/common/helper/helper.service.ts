@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Translation} from "src/app/models/translate.model";
+import {Translation} from "src/app/shared/models/translate.model";
 import {TranslateService} from "@ngx-translate/core";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {ConstantService} from "../constants/constant.service";
-import {throwError} from "rxjs";
+import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 
 @Injectable({
@@ -122,20 +122,20 @@ export class HelperService {
    * @params data
    */
 
-  requestCall(method: string, api: string, data?: any) {
+  requestCall(method: string, api: string, data?: any, headers?: HttpHeaders) {
     let response;
     switch (method) {
       case this.constants.apiMethod.post:
-        response = this.http.post(api, data).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.post(api, data, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.get:
-        response = this.http.get(api).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.get(api, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.put:
-        response = this.http.put(api, data).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.put(api, data, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.delete:
-        response = this.http.delete(api).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.delete(api, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       default:
         break;
