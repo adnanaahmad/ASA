@@ -143,6 +143,9 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  /**
+   * This functions hits the api call that returns all the locale settings and configurations.
+   */
   getLocale() {
     this.authService.localeSetting().subscribe((data) => {
         if (data && data.ai_workflow_locale_setting_locale) {
