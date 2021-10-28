@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ai_web_server: 'http://localhost:8075',
+  ai_web_server: 'http://localhost:8075/ai-web',
   ai_entity_search_server: 'http://localhost:8087',
   ai_cmt_server: 'http://localhost:8088',
   ai_report_server: 'http://localhost:8089',

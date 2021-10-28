@@ -16,8 +16,14 @@ export class ConstantService {
    */
 
   static apiRoutes = {
-    login: `${environment.ai_web_server}/ai-web/oauth/token?grant_type=password`,
-    refreshToken: `${environment.ai_web_server}/ai-web/oauth/token?grant_type=refresh_token`
+    getToken: `${environment.ai_web_server}/oauth/token?grant_type=password`,
+    refreshToken: `${environment.ai_web_server}/oauth/token?grant_type=refresh_token`,
+    principalDataURL: `${environment.ai_cmt_server}/case/principal`,
+    userSecurityInfoURL: `${environment.ai_cmt_server}/case/getusersecurityinfo`,
+    cmtConfigurationsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=cmt_configuration`,
+    localeSettingsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=locale_setting`,
+    userInfoURL: `${environment.ai_web_server}/rest/userInfo`,
+    aiWebNewWindowURL: `${environment.ai_web_server}/Login.jsp?embedMode=newWindow&session='`
   };
 
   /**
@@ -72,4 +78,12 @@ export class ConstantService {
       value: 'AD'
     }
   ]
+
+  /**
+   *  This contains the App Properties.
+   */
+  static AppProperties = {
+    notificationPollingTime: 5*60*1000,
+    localSettings: JSON.parse(<string>localStorage.getItem('localeSettings'))
+  }
 }

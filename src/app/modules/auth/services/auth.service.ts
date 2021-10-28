@@ -1,5 +1,12 @@
 import {Injectable} from '@angular/core';
-import {LoginResponse} from "src/app/shared/models/auth.model";
+import {
+  CMTConfig,
+  FWAUserInfo,
+  LocaleSetting,
+  LoginResponse,
+  PrincipalData,
+  SecurityInfo
+} from "src/app/shared/models/auth.model";
 import {HttpHeaders} from "@angular/common/http";
 import {HelperService} from "src/app/shared/services/common/helper/helper.service";
 import {Observable} from "rxjs";
@@ -27,7 +34,7 @@ export class AuthService {
    * @param data
    */
   loginUser(data: string): Observable<LoginResponse> {
-    return <Observable<LoginResponse>> this.helperService.requestCall(this.method.post, this.apiRoutes.login,
+    return <Observable<LoginResponse>> this.helperService.requestCall(this.method.post, this.apiRoutes.getToken,
       data, this.authTokenHeader);
   }
 
@@ -41,5 +48,40 @@ export class AuthService {
     urlSearchParams.set('refresh_token', token);
     return <Observable<LoginResponse>> this.helperService.requestCall(this.method.post, this.apiRoutes.refreshToken,
       urlSearchParams.toString(), this.authTokenHeader);
+  }
+
+  /**
+   * This function is used to return principal data by hitting principal data url.
+   */
+  principalData(): Observable<PrincipalData> {
+    return <Observable<PrincipalData>> this.helperService.requestCall(this.method.get, this.apiRoutes.principalDataURL);
+  }
+
+  /**
+   * This function is used to get the security information of the user that which modules he can access.
+   */
+  userSecurityInfo(): Observable<SecurityInfo> {
+    return <Observable<SecurityInfo>> this.helperService.requestCall(this.method.get, this.apiRoutes.userSecurityInfoURL);
+  }
+
+  /**
+   * This function is used to get cmt configurations.
+   */
+  cmtConfigs(): Observable<CMTConfig> {
+    return <Observable<CMTConfig>> this.helperService.requestCall(this.method.get, this.apiRoutes.cmtConfigurationsURL);
+  }
+
+  /**
+   * This function is used to return locale settings.
+   */
+  localeSetting(): Observable<LocaleSetting>{
+    return <Observable<LocaleSetting>> this.helperService.requestCall(this.method.get, this.apiRoutes.localeSettingsURL);
+  }
+
+  /**
+   * This function is used to get user info
+   */
+  getFwaUserInfo(): Observable<FWAUserInfo> {
+    return <Observable<FWAUserInfo>> this.helperService.requestCall(this.method.get, this.apiRoutes.userInfoURL);
   }
 }

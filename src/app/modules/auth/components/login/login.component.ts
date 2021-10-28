@@ -4,7 +4,7 @@ import {Md5} from "md5-typescript";
 import {AuthService} from "src/app/modules/auth/services/auth.service";
 import {HelperService} from "src/app/shared/services/common/helper/helper.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {LoginFormData} from "src/app/shared/models/auth.model";
+import {FWAUserInfo, LoginFormData, UserGroup} from "src/app/shared/models/auth.model";
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,10 @@ import {LoginFormData} from "src/app/shared/models/auth.model";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
   wrongCredentials: boolean = false;
+  loginForm!: FormGroup;
+  username!: string;
+  userEncryptedInfo!: string;
 
   constructor(
     public helperService: HelperService,
@@ -64,6 +66,8 @@ export class LoginComponent implements OnInit {
       this.authService.loginUser(urlSearchParams.toString()).subscribe((res) => {
         if (res && res.access_token) {
           this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.tokens, JSON.stringify(res));
+          this.getPrincipalData();
+          this.openAbosulteInsight();
         }
       }, (error) => {
         if (error && error.status === 401 || error.status === 400) {
@@ -73,4 +77,93 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * This function is used to open the FWA finder in the new tab.
+   */
+  openAbosulteInsight() {
+    this.authService.getFwaUserInfo()
+      .subscribe((data: FWAUserInfo) => {
+          if (data) {
+            this.userEncryptedInfo = data.token;
+            window.open(this.helperService.constants.apiRoutes.aiWebNewWindowURL + this.userEncryptedInfo);
+          }
+        },
+        (error) => {
+          this.userEncryptedInfo = error.error.text;
+        });
+  }
+
+  /**
+   * This function is used to get the principal
+   */
+  getPrincipalData() {
+    this.authService.principalData().subscribe((data) => {
+        let loggedUser: any = data;
+        this.username = loggedUser.name;
+        loggedUser = loggedUser.userAuthentication.details.principal.user;
+        let user: any = {};
+        user.firstName = loggedUser.firstName;
+        user.lastName = loggedUser.lastName;
+        user.userId = loggedUser.userId;
+        user.userName = this.username;
+        user.userEmail = loggedUser.userEmail;
+        let ug: Array<UserGroup> = loggedUser.userGroups;
+        let roles: Array<string> = [];
+        for (let i in ug) {
+          roles[i] = ug[i].name;
+        }
+        user.roles = roles;
+        localStorage.setItem(this.helperService.constants.localStorageKeys.userInfo, JSON.stringify(user));
+        this.getLocale();
+        this.getConfiguration();
+      },(error) => {
+      console.error(error);
+    })
+  }
+
+  /**
+   * This function is used to get the access list of the user.
+   */
+  getUserSecurityInfo() {
+    this.authService.userSecurityInfo().subscribe((data) => {
+        localStorage.setItem(this.helperService.constants.localStorageKeys.userSecurityInfo, JSON.stringify(data));
+      },(error) =>{
+      console.error(error);
+    })
+  }
+
+  /**
+   * This function is used to return the cmt configurations and access rights.
+   */
+  getConfiguration() {
+    this.authService.cmtConfigs().subscribe((data) => {
+        localStorage.setItem(this.helperService.constants.localStorageKeys.cmt_configurations, JSON.stringify(data.ai_workflow_options));
+      }, (error) => {
+        console.error(error);
+      });
+  }
+
+  getLocale() {
+    this.authService.localeSetting().subscribe((data) => {
+        if (data && data.ai_workflow_locale_setting_locale) {
+          let localeSettings: any = {};
+          localeSettings.decimalPoints = data.ai_workflow_locale_setting_decimal_points;
+          localeSettings.currencySign = data.ai_workflow_locale_setting_currency_sign;
+          localeSettings.locale = data.ai_workflow_locale_setting_locale;
+          localeSettings.dateFormat = data.ai_workflow_locale_setting_date_format;
+          localeSettings.caseAlias = data.ai_workflow_locale_setting_case_alias;
+          localeSettings.stateProvince = data.ai_workflow_locale_setting_state_label;
+          localeSettings.zipPostalCode = data.ai_workflow_locale_setting_zip_code_label;
+          localeSettings.fullDateFormat = data.ai_workflow_locale_setting_date_format_full;
+          localeSettings.entityTypes = data.ai_workflow_locale_setting_entity_types;
+          localeSettings.cmtPageSize = data.ai_workflow_application_page_zize;
+          localeSettings.subscriberIdColumnValue = data.ai_workflow_locale_setting_subscriber_id_column;
+          this.helperService.constants.AppProperties.localSettings = localeSettings;
+          localStorage.setItem(this.helperService.constants.localStorageKeys.localeSettings, JSON.stringify(localeSettings))
+        }
+        this.getUserSecurityInfo();
+      }, (error) => {
+        console.error(error);
+      })
+  }
 }
