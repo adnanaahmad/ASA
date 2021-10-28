@@ -26,6 +26,15 @@ export class LoginComponent implements OnInit {
   }
 
   /**
+   * This function is used to return the form control of the loginForm and this will contain
+   * all the information about the form fields whether required field is entered or not and if not
+   * then we can check using this function and can add our custom implementation accordingly.
+   */
+  get loginFormValidations() {
+    return this.loginForm.controls;
+  }
+
+  /**
    * In this lifecycle hook, we have initialized loginForm with the required fields.
    */
   ngOnInit(): void {
@@ -34,15 +43,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
       authtype: [this.helperService.constants.loginTypes[0].value, Validators.required]
     })
-  }
-
-  /**
-   * This function is used to return the form control of the loginForm and this will contain
-   * all the information about the form fields whether required field is entered or not and if not
-   * then we can check using this function and can add our custom implementation accordingly.
-   */
-  get loginFormValidations() {
-    return this.loginForm.controls;
   }
 
   /**
@@ -98,27 +98,33 @@ export class LoginComponent implements OnInit {
    */
   getPrincipalData() {
     this.authService.principalData().subscribe((data) => {
-        let loggedUser: any = data;
-        this.username = loggedUser.name;
-        loggedUser = loggedUser.userAuthentication.details.principal.user;
-        let user: any = {};
-        user.firstName = loggedUser.firstName;
-        user.lastName = loggedUser.lastName;
-        user.userId = loggedUser.userId;
-        user.userName = this.username;
-        user.userEmail = loggedUser.userEmail;
-        let ug: Array<UserGroup> = loggedUser.userGroups;
-        let roles: Array<string> = [];
-        for (let i in ug) {
-          roles[i] = ug[i].name;
-        }
-        user.roles = roles;
-        localStorage.setItem(this.helperService.constants.localStorageKeys.userInfo, JSON.stringify(user));
-        this.getLocale();
-        this.getConfiguration();
-      },(error) => {
+      let loggedUser = data.userAuthentication.details.principal.user;
+      this.username = data.name;
+      this.getLocale();
+      this.getConfiguration();
+      this.constructUserData(loggedUser);
+    }, (error) => {
       console.error(error);
     })
+  }
+
+  /**
+   * This function is used to construct the user data that we get
+   * after hitting principal api call.
+   * @param loggedUser
+   */
+  constructUserData(loggedUser: any) {
+    let user: any = {};
+    user.roles = [];
+    loggedUser.userGroups.forEach(function (value: UserGroup) {
+      user.roles.push(value.name);
+    });
+    user.firstName = loggedUser.firstName;
+    user.lastName = loggedUser.lastName;
+    user.userId = loggedUser.userId;
+    user.userName = this.username;
+    user.userEmail = loggedUser.userEmail;
+    localStorage.setItem(this.helperService.constants.localStorageKeys.userInfo, JSON.stringify(user));
   }
 
   /**
@@ -126,8 +132,8 @@ export class LoginComponent implements OnInit {
    */
   getUserSecurityInfo() {
     this.authService.userSecurityInfo().subscribe((data) => {
-        localStorage.setItem(this.helperService.constants.localStorageKeys.userSecurityInfo, JSON.stringify(data));
-      },(error) =>{
+      localStorage.setItem(this.helperService.constants.localStorageKeys.userSecurityInfo, JSON.stringify(data));
+    }, (error) => {
       console.error(error);
     })
   }
@@ -137,10 +143,10 @@ export class LoginComponent implements OnInit {
    */
   getConfiguration() {
     this.authService.cmtConfigs().subscribe((data) => {
-        localStorage.setItem(this.helperService.constants.localStorageKeys.cmt_configurations, JSON.stringify(data.ai_workflow_options));
-      }, (error) => {
-        console.error(error);
-      });
+      localStorage.setItem(this.helperService.constants.localStorageKeys.cmt_configurations, JSON.stringify(data.ai_workflow_options));
+    }, (error) => {
+      console.error(error);
+    });
   }
 
   /**
@@ -148,25 +154,25 @@ export class LoginComponent implements OnInit {
    */
   getLocale() {
     this.authService.localeSetting().subscribe((data) => {
-        if (data && data.ai_workflow_locale_setting_locale) {
-          let localeSettings: any = {};
-          localeSettings.decimalPoints = data.ai_workflow_locale_setting_decimal_points;
-          localeSettings.currencySign = data.ai_workflow_locale_setting_currency_sign;
-          localeSettings.locale = data.ai_workflow_locale_setting_locale;
-          localeSettings.dateFormat = data.ai_workflow_locale_setting_date_format;
-          localeSettings.caseAlias = data.ai_workflow_locale_setting_case_alias;
-          localeSettings.stateProvince = data.ai_workflow_locale_setting_state_label;
-          localeSettings.zipPostalCode = data.ai_workflow_locale_setting_zip_code_label;
-          localeSettings.fullDateFormat = data.ai_workflow_locale_setting_date_format_full;
-          localeSettings.entityTypes = data.ai_workflow_locale_setting_entity_types;
-          localeSettings.cmtPageSize = data.ai_workflow_application_page_zize;
-          localeSettings.subscriberIdColumnValue = data.ai_workflow_locale_setting_subscriber_id_column;
-          this.helperService.constants.AppProperties.localSettings = localeSettings;
-          localStorage.setItem(this.helperService.constants.localStorageKeys.localeSettings, JSON.stringify(localeSettings))
-        }
-        this.getUserSecurityInfo();
-      }, (error) => {
-        console.error(error);
-      })
+      if (data && data.ai_workflow_locale_setting_locale) {
+        let localeSettings: any = {};
+        localeSettings.decimalPoints = data.ai_workflow_locale_setting_decimal_points;
+        localeSettings.currencySign = data.ai_workflow_locale_setting_currency_sign;
+        localeSettings.locale = data.ai_workflow_locale_setting_locale;
+        localeSettings.dateFormat = data.ai_workflow_locale_setting_date_format;
+        localeSettings.caseAlias = data.ai_workflow_locale_setting_case_alias;
+        localeSettings.stateProvince = data.ai_workflow_locale_setting_state_label;
+        localeSettings.zipPostalCode = data.ai_workflow_locale_setting_zip_code_label;
+        localeSettings.fullDateFormat = data.ai_workflow_locale_setting_date_format_full;
+        localeSettings.entityTypes = data.ai_workflow_locale_setting_entity_types;
+        localeSettings.cmtPageSize = data.ai_workflow_application_page_zize;
+        localeSettings.subscriberIdColumnValue = data.ai_workflow_locale_setting_subscriber_id_column;
+        this.helperService.constants.AppProperties.localSettings = localeSettings;
+        localStorage.setItem(this.helperService.constants.localStorageKeys.localeSettings, JSON.stringify(localeSettings))
+      }
+      this.getUserSecurityInfo();
+    }, (error) => {
+      console.error(error);
+    })
   }
 }

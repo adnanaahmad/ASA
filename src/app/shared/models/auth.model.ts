@@ -61,13 +61,13 @@ export interface PrincipalData {
       },
       clientOnly: boolean;
       principal: {
-        password: string;
-        username: string;
-        authorities: Array<Authority>;
         accountNonExpired: boolean;
         accountNonLocked: boolean;
         credentialsNonExpired: boolean;
         enabled: boolean;
+        password: string;
+        username: string;
+        authorities: Array<Authority>;
         user: principalUserData;
       };
       oauth2Request: {
