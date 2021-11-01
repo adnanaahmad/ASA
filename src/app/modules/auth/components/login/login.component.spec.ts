@@ -1,13 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginComponent } from './login.component';
 import {RouterModule} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
-import {HelperService} from "../../../../services/common/helper/helper.service";
+import {HelperService} from "src/app/shared/services/common/helper/helper.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {HttpLoaderFactory} from "../../../../app.module";
+import {HttpLoaderFactory} from "src/app/app.module";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import {Translation} from "src/app/models/translate.model";
+import {Injectable} from '@angular/core';
+import {Translation} from "src/app/shared/models/translate.model";
 import {TranslateService} from "@ngx-translate/core";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {ConstantService} from "../constants/constant.service";
 import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
+import * as CryptoJS from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import {catchError} from "rxjs/operators";
 export class HelperService {
   translated!: Translation;
   constants: typeof ConstantService;
+
   constructor(
     public translate: TranslateService,
     private http: HttpClient,
@@ -28,6 +30,13 @@ export class HelperService {
      * Following this.constants contains all the elements stated in the constant service.
      */
     this.constants = ConstantService;
+  }
+
+  /**
+   * this function returns the appIcons from constantService.
+   */
+  get appIcons() {
+    return this.constants.appIcons;
   }
 
   /**
@@ -98,10 +107,10 @@ export class HelperService {
    * @param path
    */
   setCookie(name: string, value: string, expireDays: number, path: string = '') {
-    let d:Date = new Date();
+    let d: Date = new Date();
     d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
-    let expires:string = `expires=${d.toUTCString()}`;
-    let cpath:string = path ? `; path=${path}` : '';
+    let expires: string = `expires=${d.toUTCString()}`;
+    let cpath: string = path ? `; path=${path}` : '';
     document.cookie = `${name}=${value}; ${expires}${cpath}`;
   }
 
@@ -109,7 +118,7 @@ export class HelperService {
    * This generic function is used to clear all the cookie storage.
    */
   clearCookieStorage() {
-    document.cookie.split(';').forEach(function(c) {
+    document.cookie.split(';').forEach(function (c) {
       document.cookie = c.trim().split('=')[0] + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;';
     });
   }
@@ -122,20 +131,20 @@ export class HelperService {
    * @params data
    */
 
-  requestCall(method: string, api: string, data?: any) {
+  requestCall(method: string, api: string, data?: any, headers?: HttpHeaders) {
     let response;
     switch (method) {
       case this.constants.apiMethod.post:
-        response = this.http.post(api, data).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.post(api, data, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.get:
-        response = this.http.get(api).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.get(api, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.put:
-        response = this.http.put(api, data).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.put(api, data, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       case this.constants.apiMethod.delete:
-        response = this.http.delete(api).pipe(catchError(err => this.handleError(err, this)));
+        response = this.http.delete(api, {headers: headers}).pipe(catchError(err => this.handleError(err, this)));
         break;
       default:
         break;
@@ -163,10 +172,22 @@ export class HelperService {
   };
 
   /**
-   * this function returns the appIcons from constantService.
+   * This function returns the data in the encrypted format with the given key.
+   * @param data
+   * @param key
    */
-  get appIcons() {
-    return this.constants.appIcons;
+  encrypt(data: string): string {
+    return CryptoJS.AES.encrypt(data, this.constants.AppProperties.encryptionKey).toString();
+  }
+
+  /**
+   * This function returns the data in the decrypted format and it can only return the same
+   * value as it was before encryption if we will be using the proper key.
+   * @param data
+   * @param key
+   */
+  decrypt(data: string): string {
+    return CryptoJS.AES.decrypt(data, this.constants.AppProperties.encryptionKey).toString(CryptoJS.enc.Utf8);
   }
 
 }
