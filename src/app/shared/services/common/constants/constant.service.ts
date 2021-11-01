@@ -84,6 +84,7 @@ export class ConstantService {
    */
   static AppProperties = {
     notificationPollingTime: 5*60*1000,
-    localSettings: JSON.parse(<string>localStorage.getItem('localeSettings'))
+    encryptionKey: 'AIzaSyBDlfDU3mi8aSNXrcYjpOxERSOZr99_XH0',
+    localSettings: undefined
   }
 }

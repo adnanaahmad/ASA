@@ -65,9 +65,13 @@ export class LoginComponent implements OnInit {
       urlSearchParams.set('hidden_password', btoa(value.password));
       this.authService.loginUser(urlSearchParams.toString()).subscribe((res) => {
         if (res && res.access_token) {
-          this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.tokens, JSON.stringify(res));
+          this.helperService.setCookie(this.helperService.constants.localStorageKeys.tokens,
+            this.helperService.encrypt(JSON.stringify(res)),
+            365, "localhost");
+          sessionStorage.setItem('tokens', JSON.stringify(res))
           this.getPrincipalData();
           this.openAbosulteInsight();
+          window.open('http://localhost:4200');
         }
       }, (error) => {
         if (error && error.status === 401 || error.status === 400) {
@@ -124,7 +128,8 @@ export class LoginComponent implements OnInit {
     user.userId = loggedUser.userId;
     user.userName = this.username;
     user.userEmail = loggedUser.userEmail;
-    localStorage.setItem(this.helperService.constants.localStorageKeys.userInfo, JSON.stringify(user));
+    this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.userInfo,
+      this.helperService.encrypt(JSON.stringify(user)))
   }
 
   /**
@@ -132,7 +137,13 @@ export class LoginComponent implements OnInit {
    */
   getUserSecurityInfo() {
     this.authService.userSecurityInfo().subscribe((data) => {
-      localStorage.setItem(this.helperService.constants.localStorageKeys.userSecurityInfo, JSON.stringify(data));
+      try {
+        this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.userSecurityInfo,
+          this.helperService.encrypt(JSON.stringify(data)));
+      } catch (error) {
+        console.error(error)
+      }
+
     }, (error) => {
       console.error(error);
     })
@@ -143,7 +154,8 @@ export class LoginComponent implements OnInit {
    */
   getConfiguration() {
     this.authService.cmtConfigs().subscribe((data) => {
-      localStorage.setItem(this.helperService.constants.localStorageKeys.cmt_configurations, JSON.stringify(data.ai_workflow_options));
+      this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.cmt_configurations,
+        this.helperService.encrypt(JSON.stringify(data.ai_workflow_options)));
     }, (error) => {
       console.error(error);
     });
@@ -168,7 +180,8 @@ export class LoginComponent implements OnInit {
         localeSettings.cmtPageSize = data.ai_workflow_application_page_zize;
         localeSettings.subscriberIdColumnValue = data.ai_workflow_locale_setting_subscriber_id_column;
         this.helperService.constants.AppProperties.localSettings = localeSettings;
-        localStorage.setItem(this.helperService.constants.localStorageKeys.localeSettings, JSON.stringify(localeSettings))
+        this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.localeSettings,
+          this.helperService.encrypt(JSON.stringify(localeSettings)));
       }
       this.getUserSecurityInfo();
     }, (error) => {
