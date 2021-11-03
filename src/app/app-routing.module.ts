@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from "./shared/services/core/gurads/auth.guard";
 
 const routes: Routes = [
   {
@@ -8,17 +9,17 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('src/app/modules/navigation/navigation.module').then(m => m.NavigationModule)
   },
   {
     path: '**',
     loadChildren: () => import('src/app/shared/shared.module').then(m => m.SharedModule)
-  },
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: false})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

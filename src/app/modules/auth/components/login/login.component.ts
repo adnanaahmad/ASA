@@ -4,7 +4,7 @@ import {Md5} from "md5-typescript";
 import {AuthService} from "src/app/modules/auth/services/auth.service";
 import {HelperService} from "src/app/shared/services/common/helper/helper.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FWAUserInfo, LoginFormData, UserGroup} from "src/app/shared/models/auth.model";
+import {FWAUserInfo, LoginFormData, PrincipalData, UserGroup} from "src/app/shared/models/auth.model";
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   username!: string;
   userEncryptedInfo!: string;
+  principalData!: PrincipalData;
 
   constructor(
     public helperService: HelperService,
@@ -69,9 +70,8 @@ export class LoginComponent implements OnInit {
             this.helperService.encrypt(JSON.stringify(res)),
             365, "localhost");
           sessionStorage.setItem('tokens', JSON.stringify(res))
+          window.location.href = 'http://localhost:4200';
           this.getPrincipalData();
-          this.openAbosulteInsight();
-          window.open('http://localhost:4200');
         }
       }, (error) => {
         if (error && error.status === 401 || error.status === 400) {
@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
       .subscribe((data: FWAUserInfo) => {
           if (data) {
             this.userEncryptedInfo = data.token;
-            window.open(this.helperService.constants.apiRoutes.aiWebNewWindowURL + this.userEncryptedInfo);
+            window.location.href = this.helperService.constants.apiRoutes.aiWebNewWindowURL + this.userEncryptedInfo
           }
         },
         (error) => {
@@ -102,6 +102,7 @@ export class LoginComponent implements OnInit {
    */
   getPrincipalData() {
     this.authService.principalData().subscribe((data) => {
+      this.principalData = data;
       let loggedUser = data.userAuthentication.details.principal.user;
       this.username = data.name;
       this.getLocale();
@@ -118,6 +119,7 @@ export class LoginComponent implements OnInit {
    * @param loggedUser
    */
   constructUserData(loggedUser: any) {
+    console.log("this is the loggef user", loggedUser)
     let user: any = {};
     user.roles = [];
     loggedUser.userGroups.forEach(function (value: UserGroup) {
@@ -140,6 +142,13 @@ export class LoginComponent implements OnInit {
       try {
         this.helperService.addLocalStorageItem(this.helperService.constants.localStorageKeys.userSecurityInfo,
           this.helperService.encrypt(JSON.stringify(data)));
+        const result = data.ai_workflow_access_groups.filter(values => values === 'Read Only');
+        if(result.length > 0) {
+          this.openAbosulteInsight();
+        } else {
+          // this.router.navigate(['home']);
+        }
+
       } catch (error) {
         console.error(error)
       }

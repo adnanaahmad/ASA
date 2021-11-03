@@ -5,7 +5,18 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
 const routes: Routes = [
   {
     path: '',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '404',
+        pathMatch: 'full'
+      },
+      {
+        path: '404',
+        component: PageNotFoundComponent,
+      }
+    ]
   }
 ];
 
