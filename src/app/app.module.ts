@@ -13,6 +13,8 @@ import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {HelperService} from "./shared/services/common/helper/helper.service";
 import {TokenInterceptorService} from "./shared/services/core/interceptors/token-interceptor.service";
+import {SharedModule} from "./shared/shared.module";
+import {AuthGuard} from "./shared/services/core/gurads/auth.guard";
 
 /**
  * AoT requires an exported function for factories
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     TranslateService,
     HelperService,
+    AuthGuard,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {
       provide: HTTP_INTERCEPTORS,
