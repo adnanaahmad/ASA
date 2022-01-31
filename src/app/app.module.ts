@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {AuthModule} from "./modules/auth/auth.module";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
@@ -37,7 +36,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule,
     SharedModule,
     TranslateModule.forRoot({
       loader: {
@@ -45,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   providers: [
     TranslateService,

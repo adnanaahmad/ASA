@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
             this.helperService.encrypt(JSON.stringify(res)),
             365, "localhost");
           sessionStorage.setItem('tokens', JSON.stringify(res))
-          window.location.href = 'http://localhost:4200';
+          this.openAbosulteInsight();
           this.getPrincipalData();
         }
       }, (error) => {

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {LoginTypes} from "src/app/shared/models/auth.model";
 import {environment} from "src/environments/environment";
-import * as fas from "@fortawesome/free-solid-svg-icons";
 
 
 @Injectable({
@@ -60,8 +59,6 @@ export class ConstantService {
    * This contains all the icons used in the project.
    */
   static appIcons = {
-    faUser: fas.faUser,
-    faLock: fas.faLock
   };
 
   /**
