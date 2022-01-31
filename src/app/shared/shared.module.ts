@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {SharedRoutingModule} from "./shared-routing.module";
-
-
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,11 @@ import {SharedRoutingModule} from "./shared-routing.module";
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+  ],
+  exports: [
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }
