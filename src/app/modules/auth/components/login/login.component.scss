@@ -3,12 +3,23 @@
   background: yellow;
   display: flex;
 }
-.example-card {
-  max-width: 400px;
+.login-card {
+  max-width: 800px;
+  min-width: 100px;
   margin: auto;
+  display: flex;
+  padding: 0;
 }
-  
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.login-parent-form {
+  padding: 16px;
+  min-width: 50px;
+  width: 350px;
+}
+.login-form {
+  background: pink;
+}
+.security-info {
+  width: 350px;
+  min-width: 50px;
+  background: purple;
 }
