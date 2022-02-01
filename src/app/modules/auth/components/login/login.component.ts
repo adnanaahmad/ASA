@@ -46,7 +46,9 @@ export class LoginComponent implements OnInit {
       authtype: [this.helperService.constants.loginTypes[0].value, Validators.required]
     })
   }
-
+  signIn(): void {
+    this.router.navigate(['home']);
+  }
   /**
    * This function will receive the values that will have the LoginFormData Type and
    * valid boolean value that tells that whether all the required fields have been entered

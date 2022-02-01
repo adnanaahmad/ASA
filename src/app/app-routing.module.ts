@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     loadChildren: () => import('src/app/modules/navigation/navigation.module').then(m => m.NavigationModule)
   },
   {
