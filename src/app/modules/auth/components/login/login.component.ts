@@ -12,6 +12,7 @@ import {FWAUserInfo, LoginFormData, PrincipalData, UserGroup} from "src/app/shar
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  hide: boolean = true;
   wrongCredentials: boolean = false;
   loginForm!: FormGroup;
   username!: string;

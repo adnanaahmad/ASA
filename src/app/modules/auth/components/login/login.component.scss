@@ -11,15 +11,38 @@
   padding: 0;
 }
 .login-parent-form {
-  padding: 16px;
+  padding: 25px;
   min-width: 50px;
   width: 350px;
 }
 .login-form {
-  background: pink;
+  border: 1px solid pink;
 }
 .security-info {
   width: 350px;
   min-width: 50px;
   background: purple;
+}
+.field-width-100 {
+  width: 100%;
+}
+.action-button-row {
+  display: flex;
+}
+.action-button-row button,
+.action-button-row a {
+  margin-right: 8px;
+  flex: 1;
+}
+.text-center {
+  text-align: center;
+}
+.font-weight-500 {
+  font-weight: 500;
+}
+.margin-0 {
+  margin: 0;
+}
+.display-flex {
+  display: flex;
 }
