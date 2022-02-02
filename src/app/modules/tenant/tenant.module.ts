@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { TenantRoutingModule } from './tenant-routing.module';
 import { TenantComponent } from './components/tenant/tenant.component';
-
+import { MutualModule } from 'src/app/mutual.module';
 
 @NgModule({
   declarations: [
     TenantComponent
   ],
   imports: [
-    CommonModule,
+    MutualModule,
     TenantRoutingModule
   ]
 })
