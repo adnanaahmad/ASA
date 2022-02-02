@@ -9,41 +9,47 @@ import {HelperService} from "../../../../shared/services/common/helper/helper.se
 export class NavigationComponent implements OnInit {
   events: string[] = [];
   opened: boolean = false;
-
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
   sideNavItems: any = 
   [
     {
       name: 'Alivia Program Integrity Suite',
-      icon: 'window'
+      icon: 'window',
+      route: 'integrity-suite'
     },
     {
       name: 'Organization',
-      icon: 'home'
+      icon: 'home',
+      route: 'organization'
     },
     {
       name: 'Tenants',
-      icon: 'business'
+      icon: 'business',
+      route: 'tenant'
     },
     {
       name: 'Departments',
-      icon: 'apartment'
+      icon: 'apartment',
+      route: 'department'
     },
     {
       name: 'User Groups',
-      icon: 'group'
+      icon: 'group',
+      route: 'user-group'
     },
     {
       name: 'Users',
-      icon: 'person_outline'
+      icon: 'person_outline',
+      route: 'user'
     },
     {
       name: 'Security Policies',
-      icon: 'lock'
+      icon: 'lock',
+      route: 'security-policy'
     },
     {
       name: 'Alivia Services',
-      icon: 'view_in_ar'
+      icon: 'view_in_ar',
+      route: 'alivia-services'
     }
   ];
   constructor(
