@@ -2,9 +2,9 @@
   <!-- side navigation bar -->
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
-    <mat-selection-list #shoes [multiple]="false">
+    <mat-selection-list [multiple]="false">
       <mat-list-option *ngFor="let item of sideNavItems" [value]="item" [routerLink]="[item.route]">
-        <div style="display: flex; align-items: center;">
+        <div class="menu-item" style="display: flex; align-items: center;">
           <mat-icon style="margin-right: 10px;color:rgb(96, 96, 95)">{{item.icon}}</mat-icon>
           <p style="margin: 0;color:rgb(96, 96, 95)">{{item.name}}</p>
         </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HelperService} from "../../../../shared/services/common/helper/helper.service";
-
+import {
+  BreakpointObserver,
+  BreakpointState
+} from '@angular/cdk/layout';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -53,10 +56,19 @@ export class NavigationComponent implements OnInit {
     }
   ];
   constructor(
-    private helperService: HelperService
+    private helperService: HelperService,
+    public breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(min-width: 700px)'])
+      .subscribe((state: BreakpointState) => {
+        if (!state.matches) {
+          this.opened = false;
+          console.log('Viewport width is less than 700px!');
+        }
+      });
   }
 
   clearStorage() {
