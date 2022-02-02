@@ -5,7 +5,10 @@ import {NavigationComponent} from "./components/navigation/navigation.component"
 const routes: Routes = [
   {
     path: '',
-    component: NavigationComponent
+    component: NavigationComponent,
+    children: [
+      { path: 'integrity-suite', loadChildren: () => import('../integrity-suite/integrity-suite.module').then(m => m.IntegritySuiteModule) }
+    ]
   }
 ];
 
