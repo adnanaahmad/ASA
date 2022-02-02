@@ -7,9 +7,10 @@ const routes: Routes = [
     path: '',
     component: NavigationComponent,
     children: [
-      { path: 'integrity-suite', loadChildren: () => import('../integrity-suite/integrity-suite.module').then(m => m.IntegritySuiteModule) }
+      { path: 'integrity-suite', loadChildren: () => import('../integrity-suite/integrity-suite.module').then(m => m.IntegritySuiteModule) },
+      { path: 'organization', loadChildren: () => import('../organization/organization.module').then(m => m.OrganizationModule) },
     ]
-  }
+  },
 ];
 
 @NgModule({
