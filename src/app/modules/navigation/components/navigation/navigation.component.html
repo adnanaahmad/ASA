@@ -5,8 +5,8 @@
     <mat-selection-list [multiple]="false">
       <mat-list-option *ngFor="let item of sideNavItems" [value]="item" [routerLink]="[item.route]">
         <div class="menu-item" style="display: flex; align-items: center;">
-          <mat-icon style="margin-right: 10px;color:rgb(96, 96, 95)">{{item.icon}}</mat-icon>
-          <p style="margin: 0;color:rgb(96, 96, 95)">{{item.name}}</p>
+          <mat-icon style="margin-right: 10px;">{{item.icon}}</mat-icon>
+          <p style="margin: 0;">{{item.name}}</p>
         </div>
       </mat-list-option>
     </mat-selection-list>
@@ -16,7 +16,7 @@
     <!-- header -->
     <mat-card style="display: flex; justify-content: space-between; align-items:center;">
       <button mat-button (click)="sidenav.toggle()">
-        <mat-icon style="color:rgb(96, 96, 95)">menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </button>
       <div style="display: flex; align-items: center;">
         <mat-icon style="margin-right: 10px;">info</mat-icon>
