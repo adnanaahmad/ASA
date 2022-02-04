@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, OnDestroy, Component } from '@angular/core';
 import {HelperService} from "../../../../shared/services/common/helper/helper.service";
 import {
   BreakpointObserver,
   BreakpointState
 } from '@angular/cdk/layout';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {} from '@angular/core';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnDestroy {
   events: string[] = [];
   opened: boolean = false;
   sideNavItems: any =
@@ -55,23 +57,16 @@ export class NavigationComponent implements OnInit {
       route: 'alivia-services'
     }
   ];
-  constructor(
-    private helperService: HelperService,
-    public breakpointObserver: BreakpointObserver
-  ) { }
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
-  ngOnInit(): void {
-    this.breakpointObserver
-      .observe(['(min-width: 1024px)'])
-      .subscribe((state: BreakpointState) => {
-        if (!state.matches) {
-          this.opened = false;
-          console.log('Viewport width is less than 700px!');
-        }
-      });
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  clearStorage() {
-    this.helperService.clearLocalStorage();
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }
