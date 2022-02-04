@@ -12,7 +12,7 @@ import {
 export class NavigationComponent implements OnInit {
   events: string[] = [];
   opened: boolean = false;
-  sideNavItems: any = 
+  sideNavItems: any =
   [
     {
       name: 'Alivia Program Integrity Suite',
@@ -62,7 +62,7 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(min-width: 700px)'])
+      .observe(['(min-width: 1024px)'])
       .subscribe((state: BreakpointState) => {
         if (!state.matches) {
           this.opened = false;
