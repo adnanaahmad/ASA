@@ -15,6 +15,11 @@
           <mat-icon>person</mat-icon>
           <span>Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </button>
+        <div mat-menu-item>
+          <mat-slide-toggle color="primary" (click)="toggleDarkTheme($event)">
+            <span>{{ isDark ? "Dark" : "Light" }}</span>
+          </mat-slide-toggle>
+        </div>
         <button mat-menu-item [routerLink]="['/login']">
           <mat-icon>logout</mat-icon>
           <span>Logout</span>

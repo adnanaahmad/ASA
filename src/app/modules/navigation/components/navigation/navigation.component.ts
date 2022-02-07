@@ -6,6 +6,7 @@ import {
 } from '@angular/cdk/layout';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {} from '@angular/core';
+import {ThemeService} from "../../../../shared/services/core/theme/theme.service";
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -13,6 +14,7 @@ import {} from '@angular/core';
 })
 export class NavigationComponent implements OnDestroy {
   events: string[] = [];
+  isDark = false;
   opened: boolean = false;
   sideNavItems: any =
   [
@@ -60,13 +62,20 @@ export class NavigationComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private styleManager: ThemeService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
+    this.isDark = this.styleManager.isDark;
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  toggleDarkTheme(event: any) {
+    event.stopPropagation();
+    this.styleManager.toggleDarkTheme();
+    this.isDark = !this.isDark;
   }
 }
