@@ -1,4 +1,4 @@
-<div style="width: fit-content; min-width: 600px; padding: 20px; height:fit-content; border: 1px solid black; margin-left: auto; margin-right: auto">
+<div style="width: fit-content; min-width: 600px; padding: 20px; height:fit-content; margin-left: auto; margin-right: auto; margin-top: 50px" [ngStyle]="{'border': borderService.isBorder ? '1px solid black' : 'none'}">
   <mat-card *ngIf="hide" style="margin-bottom: 10px; border-radius: 20px; width: fit-content; display: flex; flex-direction: column; justify-content: center; align-items: center">
     <button style="margin: auto" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
       <mat-icon>add_circle</mat-icon>
@@ -11,8 +11,8 @@
         <app-basic-info></app-basic-info>
       </mat-tab>
       <mat-tab label="Product Access">
-        <mat-card class="example-large-box mat-elevation-z4">
-          Large content
+        <mat-card class="example-small-box mat-elevation-z4">
+          Small content
         </mat-card>
       </mat-tab>
       <mat-tab label="Hierarchy">

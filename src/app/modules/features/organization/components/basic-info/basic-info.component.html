@@ -1,14 +1,61 @@
-<div>
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Placeholder">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Registration No.</mat-label>
-    <input matInput placeholder="Placeholder">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Service Category</mat-label>
-    <input matInput placeholder="Placeholder">
-  </mat-form-field>
+<div [ngStyle]="{'display': 'flex', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center'}">
+  <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'border': borderService.isBorder ? '1px solid yellow' : 'none'}">
+    <mat-icon style="font-size: 80px;height: fit-content; width: fit-content" class="material-icons-outlined">home</mat-icon>
+    <div>
+      <input type="file" class="file-input" #fileUpload>
+      <button mat-flat-button color="primary" (click)="fileUpload.click()">
+        <mat-icon>file_upload</mat-icon>
+        <span>Upload</span>
+      </button>
+    </div>
+  </div>
+<!--  form-->
+  <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none'}">
+<!--    first row-->
+    <div style="display: flex;">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Registration No.</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Service Category</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+    </div>
+    <!--    second row-->
+    <div style="display: flex;">
+      <mat-form-field appearance="outline">
+        <mat-label>Street</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Post code</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+    </div>
+    <!--    third row-->
+    <div style="display: flex;">
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput placeholder="Placeholder" required>
+      </mat-form-field>
+    </div>
+    <!--    fourth row-->
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </div>
 </div>
