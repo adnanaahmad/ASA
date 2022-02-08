@@ -1,4 +1,9 @@
 mat-card{
   border-style: solid;
   border-width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
 }
