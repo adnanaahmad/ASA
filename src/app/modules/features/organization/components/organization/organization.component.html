@@ -1,11 +1,11 @@
 <div style="width: fit-content; min-width: 600px; padding: 20px; height:fit-content; margin-left: auto; margin-right: auto; margin-top: 50px" [ngStyle]="{'border': borderService.isBorder ? '1px solid black' : 'none'}">
   <mat-card *ngIf="hide" style="margin-bottom: 10px; border-radius: 20px; width: fit-content; display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <button style="margin: auto" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+    <button (click)="hide = false" style="margin: auto" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
       <mat-icon>add_circle</mat-icon>
     </button>
     <p>Add Organization</p>
   </mat-card>
-  <mat-card style="border-radius: 20px; min-width: 600px">
+  <mat-card style="border-radius: 20px; min-width: 600px" *ngIf="!hide">
     <mat-tab-group dynamicHeight>
       <mat-tab label="Basic Info">
         <app-basic-info></app-basic-info>
