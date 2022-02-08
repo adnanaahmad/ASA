@@ -1,5 +1,5 @@
-<div [ngStyle]="{'display': 'flex', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center'}">
-  <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'border': borderService.isBorder ? '1px solid yellow' : 'none'}">
+<div [ngStyle]="{'display': 'flex', 'padding' : '20px 0','border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center'}">
+  <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'margin-right': '10px','border': borderService.isBorder ? '1px solid yellow' : 'none'}">
     <mat-icon style="font-size: 80px;height: fit-content; width: fit-content" class="material-icons-outlined">home</mat-icon>
     <div>
       <input type="file" class="file-input" #fileUpload>
