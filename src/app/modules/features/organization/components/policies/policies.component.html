@@ -1,1 +1,53 @@
-<p>policies works!</p>
+<div [ngStyle]="{
+  'height': '400px',
+  'border': borderService.isBorder ? '1px solid red' : 'none',
+  'display': 'flex',
+  'justify-content' : 'center',
+  'align-items' : 'center'
+ }">
+  <mat-card style="width: 80%; height: fit-content">
+    <mat-card-subtitle style="text-align: center; font-size: 1.2em">Password Policy</mat-card-subtitle>
+    <mat-card-content>
+      <!--  form-->
+      <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
+        <!--    first row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Minimum Characters</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Uppercase Letters</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Lowercase Letters</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+        <!--    second row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Special Characters</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Number Length</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Expiry after (x) Days</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+        <!--    third row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Previous Password Limit</mat-label>
+            <input matInput maxlength="5" placeholder="Placeholder">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
