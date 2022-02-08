@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import {SharedRoutingModule} from "./shared-routing.module";
 import { TableComponent } from './components/table/table.component';
 import {MutualModule} from "../mutual.module";
 
@@ -10,10 +9,10 @@ import {MutualModule} from "../mutual.module";
     TableComponent
   ],
   exports: [
-    TableComponent
+    TableComponent,
+    MutualModule
   ],
   imports: [
-    SharedRoutingModule,
     MutualModule
   ]
 })

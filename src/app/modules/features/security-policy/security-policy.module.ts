@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { SecurityPolicyRoutingModule } from './security-policy-routing.module';
 import { SecurityPolicyComponent } from './components/security-policy/security-policy.component';
-import { MutualModule } from 'src/app/mutual.module';
+import {SharedModule} from "../../../shared/shared.module";
 
 @NgModule({
   declarations: [
     SecurityPolicyComponent
   ],
   imports: [
-    MutualModule,
+    SharedModule,
     SecurityPolicyRoutingModule
   ]
 })

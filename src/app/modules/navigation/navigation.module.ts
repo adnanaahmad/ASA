@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { NavigationRoutingModule } from './navigation-routing.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { MutualModule } from 'src/app/mutual.module';
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -9,7 +9,7 @@ import { MutualModule } from 'src/app/mutual.module';
     NavigationComponent
   ],
   imports: [
-    MutualModule,
+    SharedModule,
     NavigationRoutingModule
   ]
 })

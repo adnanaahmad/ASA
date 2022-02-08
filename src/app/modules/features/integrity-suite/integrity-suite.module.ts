@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IntegritySuiteRoutingModule } from './integrity-suite-routing.module';
 import { IntegritySuiteComponent } from './components/integrity-suite/integrity-suite.component';
-import { MutualModule } from 'src/app/mutual.module';
+import {SharedModule} from "../../../shared/shared.module";
 
 @NgModule({
   declarations: [
     IntegritySuiteComponent
   ],
   imports: [
-    MutualModule,
+    SharedModule,
     IntegritySuiteRoutingModule
   ]
 })
