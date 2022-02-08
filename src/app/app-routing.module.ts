@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from "./shared/services/core/gurads/auth.guard";
+import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('src/app/shared/shared.module').then(m => m.SharedModule)
+    component: PageNotFoundComponent
   }
 ];
 
