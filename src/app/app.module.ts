@@ -3,10 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
-import {AuthModule} from "./modules/auth/auth.module";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
@@ -30,13 +28,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
-    AuthModule,
-    ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
