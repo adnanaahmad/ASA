@@ -20,6 +20,11 @@
             <span>{{ isDark ? "Dark" : "Light" }}</span>
           </mat-slide-toggle>
         </div>
+        <div mat-menu-item>
+          <mat-slide-toggle color="primary" (click)="toggleBorder($event)">
+            <span>{{ borderService.isBorder ? "Debugger On" : "Debugger Off" }}</span>
+          </mat-slide-toggle>
+        </div>
         <button mat-menu-item [routerLink]="['/login']">
           <mat-icon>logout</mat-icon>
           <span>Logout</span>

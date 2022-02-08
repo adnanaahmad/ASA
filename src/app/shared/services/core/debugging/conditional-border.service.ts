@@ -8,4 +8,7 @@ export class ConditionalBorderService {
   constructor() {
     this.isBorder = true;
   }
+  toggleBorder() {
+    this.isBorder = !this.isBorder;
+  }
 }
