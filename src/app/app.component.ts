@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.body.classList.add('mat-app-background');
     const translate = this.injector.get(TranslateService);
     const browserLang = translate.getBrowserLang();
     if (browserLang) {
