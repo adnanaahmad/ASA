@@ -16,12 +16,12 @@
           <span>Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </button>
         <div mat-menu-item>
-          <mat-slide-toggle color="primary" (click)="toggleDarkTheme($event)">
+          <mat-slide-toggle style="width: 100%; height: 100%" color="primary" (click)="toggleDarkTheme($event)">
             <span>{{ isDark ? "Dark" : "Light" }}</span>
           </mat-slide-toggle>
         </div>
         <div mat-menu-item>
-          <mat-slide-toggle color="primary" (click)="toggleBorder($event)">
+          <mat-slide-toggle style="width: 100%; height: 100%" color="primary" (click)="toggleBorder($event)">
             <span>{{ borderService.isBorder ? "Debugger On" : "Debugger Off" }}</span>
           </mat-slide-toggle>
         </div>

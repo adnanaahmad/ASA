@@ -1,1 +1,7 @@
-<p>user-management works!</p>
+<div [ngStyle]="{'padding' : '20px 20px 0 20px', 'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'align-items': 'center'}">
+  <!--  form-->
+  <mat-form-field appearance="outline">
+    <mat-label>Maximum Users</mat-label>
+    <input matInput min="0" type="number" placeholder="Placeholder" required>
+  </mat-form-field>
+</div>

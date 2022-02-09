@@ -7,7 +7,7 @@ import {ConditionalBorderService} from "../../../../../shared/services/core/debu
   styleUrls: ['./hierarchy.component.scss']
 })
 export class HierarchyComponent implements OnInit {
-
+  hierarchy = ['Tenants', 'Departments', 'User Groups', 'User'];
   constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
