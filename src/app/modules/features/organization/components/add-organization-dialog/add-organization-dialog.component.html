@@ -1,4 +1,4 @@
-<mat-tab-group dynamicHeight>
+<mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
   <mat-tab label="Basic Info">
     <app-basic-info></app-basic-info>
   </mat-tab>
@@ -15,4 +15,7 @@
     <app-user-management></app-user-management>
   </mat-tab>
 </mat-tab-group>
+<button mat-raised-button color="primary" style="height: fit-content; width: 5rem; float: right" (click)="nextButton()">
+  Next
+</button>
 

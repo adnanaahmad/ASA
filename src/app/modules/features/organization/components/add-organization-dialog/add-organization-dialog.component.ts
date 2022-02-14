@@ -7,10 +7,12 @@ import {ConditionalBorderService} from "../../../../../shared/services/core/debu
   styleUrls: ['./add-organization-dialog.component.scss']
 })
 export class AddOrganizationDialogComponent implements OnInit {
-
+  tabIndex: number = 0;
   constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
   }
-
+  nextButton() {
+    this.tabIndex === 4 ? this.tabIndex = 0 : this.tabIndex++;
+  }
 }
