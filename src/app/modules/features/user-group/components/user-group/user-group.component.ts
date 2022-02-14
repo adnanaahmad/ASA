@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConditionalBorderService} from "../../../../../shared/services/core/debugging/conditional-border.service";
 
 @Component({
   selector: 'app-user-group',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
   }

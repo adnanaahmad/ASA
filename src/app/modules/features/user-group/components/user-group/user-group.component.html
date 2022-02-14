@@ -1,1 +1,10 @@
-<p>user-group works!</p>
+<div style="min-width: 50px; width: 80%; padding: 20px; height:fit-content; margin-left: auto; margin-right: auto; margin-top: 50px" [ngStyle]="{'border': borderService.isBorder ? '1px solid black' : 'none'}">
+  <div class="mat-typography" style="display: flex; justify-content: space-between; align-items: center" [ngStyle]="{'border': borderService.isBorder ? '1px solid red' : 'none'}">
+    <h1 class="mat-h1" style="margin: 0">User Group</h1>
+    <button mat-raised-button color="primary" style="height: fit-content; border-radius: 1rem">
+      <mat-icon>add</mat-icon>
+      Add User Group
+    </button>
+  </div>
+  <app-table></app-table>
+</div>
