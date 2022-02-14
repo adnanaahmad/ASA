@@ -7,6 +7,7 @@ import { HierarchyComponent } from './components/hierarchy/hierarchy.component';
 import {SharedModule} from "../../../shared/shared.module";
 import { PoliciesComponent } from './components/policies/policies.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { AddOrganizationDialogComponent } from './components/add-organization-dialog/add-organization-dialog.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserManagementComponent } from './components/user-management/user-manag
     ProductAccessComponent,
     HierarchyComponent,
     PoliciesComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    AddOrganizationDialogComponent
   ],
     imports: [
       SharedModule,
