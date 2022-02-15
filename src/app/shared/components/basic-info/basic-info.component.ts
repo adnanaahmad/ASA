@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ConditionalBorderService} from "../../services/core/debugging/conditional-border.service";
 
 @Component({
@@ -7,7 +7,7 @@ import {ConditionalBorderService} from "../../services/core/debugging/conditiona
   styleUrls: ['./basic-info.component.scss']
 })
 export class BasicInfoComponent implements OnInit {
-
+  @Input() title : string = '';
   constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
