@@ -1,62 +1,153 @@
-.login-parent {
+/**
+* Author page design which will be used all over the 
+* authentication screens (Like Login, Signup, Forgot Password)
+* @author Tariq Akram
+* @date 14-02-2022
+*/
+
+$circleShape: 500px;
+$cicleShapeColor: #e4e6e7;
+.auth-body {
   height: 100vh;
   width: 100%;
-  margin: 0;
-  position: absolute;
-  display: flex;
+  background: url(../../../../../assets/media/auth-bg.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  @media(max-height: 600px){
+    overflow-y: auto;
+    min-height: 430px;
+  }
+  .wrap {
+    max-width: 800px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: 0;
+    height: fit-content;
+    transform: translateY(-50%);
+    z-index: 9;
+    box-shadow: 0px 0px 6px 0px #ccc;
+
+    article {
+      flex: 0 0 50%;
+      @media(max-width: 639px){
+        flex: 0 0 100%;
+        width: 100%;
+      }
+      h1 {
+        text-align: center;
+        span {
+          font-size: 30px;
+          display: block;
+          color: #00796b;
+        }
+      }
+
+      > div {
+        padding: 20px;
+      }
+      &.content {
+        background: url(../../../../../assets/media/auth-img.jpg) no-repeat;
+        background-size: cover;
+        position: relative;
+        @media(max-width: 639px){
+          display: none;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+        }
+        img {
+          display: table;
+          margin: 0 auto;
+        }
+        div {
+          padding: 40px;
+          position: relative;
+          z-index: 2;
+          height: calc(100% - 80px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        p {
+          color: #ffffff;
+          font-size: 13px;
+          line-height: 22px;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .btn-wrap {
+      display: flex;
+      button {
+        flex: 0 0 calc(50% - 8px);
+        margin-bottom: 16px;
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+
+    > :not(:last-child) {
+      margin-bottom: 15px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    .mat-form-field > div {
+      padding-bottom: 10px;
+    }
+  }
+  .auth-shape {
+    background: lighten($cicleShapeColor, 10);
+    width: $circleShape;
+    height: $circleShape;
+    border-radius: 50%;
+    position: absolute;
+    right: -$circleShape / 2;
+    bottom: -$circleShape / 2;
+    opacity: 0.5;
+    @media(max-width: 767px){
+      display: none;
+    }
+    .shapes-wrap {
+      position: absolute;
+      left: 0;
+      width: 50%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-10px);
+      .mat-icon {
+        $font-size: 100px;
+        &.shield {
+          color: #00796b;
+          font-size: $font-size;
+        }
+        &.lock {
+          color: #ffffff;
+          font-size: $font-size / 2;
+          transform: translateY($font-size / 4 - 3);
+        }
+      }
+    }
+  }
 }
-.login-card {
-  max-width: 800px;
-  min-width: 100px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  display: flex;
-  padding: 0;
-}
-.login-parent-form {
-  padding: 60px 25px 60px 25px;
-  min-width: 50px;
-  width: 350px;
-}
-.login-form {
- // border: 1px solid pink;
-}
-.security-info {
-  width: 350px;
-  min-width: 50px;
-  //border: 1px;
-  //background: purple;
-}
-.field-width-100 {
-  width: 100%;
-}
-.action-button-row {
-  display: flex;
-}
-.action-button-row button,
-.action-button-row a {
-  margin-right: 8px;
-  flex: 1;
-}
-.text-center {
-  text-align: center;
-}
-.font-weight-500 {
-  font-weight: 500;
-}
-.margin-0 {
-  margin: 0;
-}
-.display-flex {
-  display: flex;
-}
-//input:-webkit-autofill {
-//  -webkit-box-shadow:0 0 0 50px #424242 inset; /* Change the color to your own background color */
-//  -webkit-text-fill-color: white;
-//}
-//
-//input:-webkit-autofill:focus {
-//  -webkit-box-shadow: 0 0 0 50px #424242 inset;/*your box-shadow*/
-//  -webkit-text-fill-color: white;
-//}

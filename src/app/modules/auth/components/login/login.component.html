@@ -1,36 +1,48 @@
-<div class="login-parent">
-  <mat-card class="login-card">
-    <div class="login-parent-form">
-      <div class="login-form">
-        <p class="text-center mat-h3 font-weight-500 margin-0">Welcome To</p>
-        <p class="text-center mat-headline font-weight-500">Alivia Security App</p>
-        <mat-form-field appearance="outline" class="field-width-100">
-          <mat-label>Username</mat-label>
-          <span matPrefix class="display-flex">
-            <mat-icon matSuffix>person</mat-icon>
-            <span> &nbsp;</span>
-          </span>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="field-width-100">
-          <mat-label>Password</mat-label>
-          <span matPrefix class="display-flex">
-            <mat-icon matSuffix>lock</mat-icon>
-            <span> &nbsp;</span>
-          </span>
-          <input matInput [type]="hide ? 'password' : 'text'">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
-        <div class="action-button-row">
-          <button mat-raised-button color="primary" (click)="signIn()">Login</button>
-          <button mat-stroked-button>Clear</button>
-        </div>
+<section class="auth-body">
+  <mat-card class="wrap">
+    <article>
+      <div>
+        <h1>Welcome To <span>Alivia Security App</span></h1>
+        <form action="">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <span matPrefix>
+              <mat-icon matSuffix>person</mat-icon>
+            </span>
+            <input matInput placeholder="abc@gmail.com">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <span matPrefix>
+              <mat-icon matSuffix>lock</mat-icon>
+            </span>
+            <input matInput placeholder="abc@gmail.com" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="btn-wrap">
+            <button mat-raised-button color="primary" (click)="signIn()">Login</button>
+            <button mat-stroked-button>Clear</button>
+          </div>
+        </form>
       </div>
-    </div>
-    <div class="security-info">
-<!--      <p>info</p>-->
-    </div>
+    </article>
+    <article class="content">
+      <div>
+        <img src="../../../../../assets/media/alivia-whitelogo.png" width="170" />
+        <p>Alivia Analytics is the only healthcare payment integrity platform built to save you time. To us, AI and
+          machine learning aren’t just buzzwords or trends – they are powerful tools that enable you to get the accurate
+          answers you need when you need them. Our software suite is purpose-built to ingest everything and anything –
+          literally.</p>
+      </div>
+    </article>
   </mat-card>
-</div>
+  <article class="auth-shape">
+    <div class="shapes-wrap">
+      <mat-icon aria-hidden="false" class="shield">shield</mat-icon>
+      <mat-icon aria-hidden="false" class="lock">lock</mat-icon>
+    </div>
+  </article>
+</section>
