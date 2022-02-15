@@ -1,10 +1,16 @@
 <div style="min-width: 50px; width: 80%; padding: 20px; height:fit-content; margin-left: auto; margin-right: auto; margin-top: 50px" [ngStyle]="{'border': borderService.isBorder ? '1px solid black' : 'none'}">
   <div class="mat-typography" style="display: flex; justify-content: space-between; align-items: center" [ngStyle]="{'border': borderService.isBorder ? '1px solid red' : 'none'}">
     <h1 class="mat-h1" style="margin: 0">User</h1>
-    <button mat-raised-button color="primary" style="height: fit-content; border-radius: 1rem" (click)="openAddUserDialog()">
+    <button mat-raised-button color="primary" style="height: fit-content; border-radius: 1rem"
+            [matMenuTriggerFor]="menu">
       <mat-icon>add</mat-icon>
       Add User
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Basic User</button>
+      <button mat-menu-item>Organization Level User</button>
+      <button mat-menu-item>Tenant Level User</button>
+    </mat-menu>
   </div>
   <app-table></app-table>
 </div>
