@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConditionalBorderService} from "../../../../../shared/services/core/debugging/conditional-border.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddTenantDialogComponent} from "../add-tenant-dialog/add-tenant-dialog.component";
 
 @Component({
   selector: 'app-tenant',
@@ -8,9 +10,11 @@ import {ConditionalBorderService} from "../../../../../shared/services/core/debu
 })
 export class TenantComponent implements OnInit {
 
-  constructor(public borderService: ConditionalBorderService) { }
+  constructor(public borderService: ConditionalBorderService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  openAddTenantDialog() {
+    this.dialog.open(AddTenantDialogComponent);
+  }
 }
