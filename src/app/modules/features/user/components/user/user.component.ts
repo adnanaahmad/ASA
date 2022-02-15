@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConditionalBorderService} from "../../../../../shared/services/core/debugging/conditional-border.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddUserDialogComponent} from "../add-user-dialog/add-user-dialog.component";
 
 @Component({
   selector: 'app-user',
@@ -8,9 +10,11 @@ import {ConditionalBorderService} from "../../../../../shared/services/core/debu
 })
 export class UserComponent implements OnInit {
 
-  constructor(public borderService: ConditionalBorderService) { }
+  constructor(public borderService: ConditionalBorderService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  openAddUserDialog() {
+    this.dialog.open(AddUserDialogComponent);
+  }
 }

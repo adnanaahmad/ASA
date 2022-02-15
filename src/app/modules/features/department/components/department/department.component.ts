@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConditionalBorderService} from "../../../../../shared/services/core/debugging/conditional-border.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddDepartmentDialogComponent} from "../add-department-dialog/add-department-dialog.component";
 
 @Component({
   selector: 'app-department',
@@ -8,9 +10,12 @@ import {ConditionalBorderService} from "../../../../../shared/services/core/debu
 })
 export class DepartmentComponent implements OnInit {
 
-  constructor(public borderService: ConditionalBorderService) { }
+  constructor(public borderService: ConditionalBorderService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openAddDepartmentDialog() {
+    this.dialog.open(AddDepartmentDialogComponent);
+  }
 }
