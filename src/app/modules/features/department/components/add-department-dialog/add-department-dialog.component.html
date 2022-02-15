@@ -1,1 +1,11 @@
-<p>add-department-dialog works!</p>
+<mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
+  <mat-tab label="Basic Info">
+    <app-basic-info-department></app-basic-info-department>
+  </mat-tab>
+  <mat-tab label="Product Access">
+    <app-product-access></app-product-access>
+  </mat-tab>
+</mat-tab-group>
+<button mat-raised-button color="primary" style="height: fit-content; width: 5rem; float: right" (click)="nextButton()">
+  Next
+</button>
