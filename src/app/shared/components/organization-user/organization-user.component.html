@@ -1,1 +1,107 @@
-<p>organization-user works!</p>
+<div [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
+  <mat-card class="mat-elevation-z0">
+    <mat-card-title style="text-align: center">Add User</mat-card-title>
+    <mat-card-subtitle style="">{{title}}</mat-card-subtitle>
+    <mat-card-content style="display: flex">
+      <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'margin-right': '20px','border': borderService.isBorder ? '1px solid yellow' : 'none', 'height': 'fit-content'}">
+        <mat-icon style="font-size: 80px;height: fit-content; width: fit-content" class="material-icons-outlined">home</mat-icon>
+        <div>
+          <input type="file" class="file-input" #fileUpload>
+          <button mat-stroked-button color="primary" (click)="fileUpload.click()">
+            <mat-icon>file_upload</mat-icon>
+            <span>Upload</span>
+          </button>
+        </div>
+      </div>
+      <!--  form-->
+      <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
+        <!--    first row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Middle Name</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+        <!--    second row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Unique ID</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+        <!--    third row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Permission Scheme</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+        <!--    fourth row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Language</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+        <!--    fifth row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+        <!--    sixth row-->
+        <div style="display: flex;">
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput placeholder="Placeholder" required>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="float: right">
+      <button mat-stroked-button style="margin-right: 1rem">Cancel</button>
+      <button mat-flat-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

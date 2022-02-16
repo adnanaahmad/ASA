@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-user-dialog.component.scss']
 })
 export class AddUserDialogComponent implements OnInit {
-
+  userType: string = '';
   constructor() { }
 
   ngOnInit(): void {

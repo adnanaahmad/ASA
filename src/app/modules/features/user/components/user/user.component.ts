@@ -14,7 +14,8 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  openAddUserDialog() {
-    this.dialog.open(AddUserDialogComponent);
+  openAddUserDialog(modalType: string) {
+   let dialog = this.dialog.open(AddUserDialogComponent);
+   dialog.componentInstance.userType = modalType;
   }
 }

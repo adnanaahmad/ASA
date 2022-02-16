@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ConditionalBorderService} from "../../services/core/debugging/conditional-border.service";
 
 @Component({
   selector: 'app-organization-user',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./organization-user.component.scss']
 })
 export class OrganizationUserComponent implements OnInit {
-
-  constructor() { }
+  @Input() title : string = '';
+  constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
   }
