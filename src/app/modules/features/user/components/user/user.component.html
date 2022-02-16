@@ -9,7 +9,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Basic User</button>
       <button mat-menu-item>Organization Level User</button>
-      <button mat-menu-item>Tenant Level User</button>
+      <button mat-menu-item (click)="openAddUserDialog()">Tenant Level User</button>
     </mat-menu>
   </div>
   <app-table></app-table>
