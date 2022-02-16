@@ -55,14 +55,7 @@
         </div>
         <!--    third row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Permission Scheme</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>User Group</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-autocomplete-field [label]="'Permission Scheme'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
           <mat-form-field appearance="outline">
             <mat-label>Contact Number</mat-label>
             <input matInput placeholder="Placeholder" required>
@@ -94,6 +87,7 @@
             <input matInput placeholder="Placeholder" required>
           </mat-form-field>
         </div>
+        <app-mat-chip-field [label]="'User Group'" [placeholder]="'New User Group...'" ></app-mat-chip-field>
         <!--    sixth row-->
         <mat-form-field style="width: 100%" appearance="outline">
           <mat-label>Description</mat-label>

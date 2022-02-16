@@ -26,10 +26,8 @@ style="padding: 2rem 0.5rem;"
             <mat-label>Registration No.</mat-label>
             <input matInput placeholder="Placeholder" required>
           </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Service Category</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-autocomplete-field [label]="'Service Category'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
+
         </div>
         <!--    second row-->
         <div style="display: flex;">

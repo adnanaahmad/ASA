@@ -22,26 +22,11 @@
             <mat-label>Name</mat-label>
             <input matInput placeholder="Placeholder" required>
           </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Data Masking</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Landing Page</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-autocomplete-field [label]="'Data Masking'" [placeholder]="'Placeholder'"></app-mat-autocomplete-field>
+          <app-mat-autocomplete-field [label]="'Landing Page'" [placeholder]="'Placeholder'"></app-mat-autocomplete-field>
         </div>
         <!--    second row-->
-        <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Tenant</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Organization</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-        </div>
+        <app-mat-chip-field [label]="'Department'" [placeholder]="'Placeholder'"></app-mat-chip-field>
         <!--    fourth row-->
         <mat-form-field style="width: 100%" appearance="outline">
           <mat-label>Description</mat-label>

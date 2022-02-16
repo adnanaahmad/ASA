@@ -11,6 +11,8 @@ import {PoliciesComponent} from "./components/policies/policies.component";
 import { TenantUserComponent } from './components/tenant-user/tenant-user.component';
 import { OrganizationUserComponent } from './components/organization-user/organization-user.component';
 import { BasicUserComponent } from './components/basic-user/basic-user.component';
+import { MatChipFieldComponent } from './components/mat-chip-field/mat-chip-field.component';
+import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-field/mat-autocomplete-field.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { BasicUserComponent } from './components/basic-user/basic-user.component
     TenantUserComponent,
     OrganizationUserComponent,
     BasicUserComponent,
+    MatChipFieldComponent,
+    MatAutocompleteFieldComponent,
   ],
   exports: [
     MaterialModule,
@@ -37,10 +41,14 @@ import { BasicUserComponent } from './components/basic-user/basic-user.component
     TenantUserComponent,
     OrganizationUserComponent,
     BasicUserComponent,
+    MatAutocompleteFieldComponent,
+    MatChipFieldComponent,
   ],
   imports: [
     MaterialModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

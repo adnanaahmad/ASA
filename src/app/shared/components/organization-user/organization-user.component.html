@@ -55,10 +55,7 @@
             <mat-label>Confirm Password</mat-label>
             <input matInput placeholder="Placeholder" required>
           </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Permission Scheme</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-autocomplete-field [label]="'Permission Scheme'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
         </div>
         <!--    fourth row-->
         <div style="display: flex;">

@@ -22,10 +22,7 @@ style="padding: 2rem 0.5rem;"
             <mat-label>Name</mat-label>
             <input matInput placeholder="Placeholder" required>
           </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Tenant</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-autocomplete-field [label]="'Tenant'" placeholder="Placeholder"></app-mat-autocomplete-field>
           <mat-form-field appearance="outline">
             <mat-label>Organization</mat-label>
             <input matInput placeholder="Placeholder" required>
