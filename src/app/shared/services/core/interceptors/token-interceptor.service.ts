@@ -18,7 +18,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     if (req && !req.url.includes('grant_type')) {
-      let tokens: any = this.helperService.decrypt(this.helperService.getCookie(this.helperService.constants.localStorageKeys.tokens));
+      let tokens: any = (this.helperService.getCookie(this.helperService.constants.localStorageKeys.tokens));
       tokens = tokens ? JSON.parse(tokens) : null;
       if (tokens) {
         req = req.clone({

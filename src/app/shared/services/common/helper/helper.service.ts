@@ -5,7 +5,6 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {ConstantService} from "../constants/constant.service";
 import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
-import * as CryptoJS from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -171,23 +170,23 @@ export class HelperService {
     return throwError({error: error.message, status: error.status});
   };
 
-  /**
-   * This function returns the data in the encrypted format with the given key.
-   * @param data
-   * @param key
-   */
-  encrypt(data: string): string {
-    return CryptoJS.AES.encrypt(data, this.constants.AppProperties.encryptionKey).toString();
-  }
-
-  /**
-   * This function returns the data in the decrypted format and it can only return the same
-   * value as it was before encryption if we will be using the proper key.
-   * @param data
-   * @param key
-   */
-  decrypt(data: string): string {
-    return CryptoJS.AES.decrypt(data, this.constants.AppProperties.encryptionKey).toString(CryptoJS.enc.Utf8);
-  }
+  // /**
+  //  * This function returns the data in the encrypted format with the given key.
+  //  * @param data
+  //  * @param key
+  //  */
+  // encrypt(data: string): string {
+  //   return CryptoJS.AES.encrypt(data, this.constants.AppProperties.encryptionKey).toString();
+  // }
+  //
+  // /**
+  //  * This function returns the data in the decrypted format and it can only return the same
+  //  * value as it was before encryption if we will be using the proper key.
+  //  * @param data
+  //  * @param key
+  //  */
+  // decrypt(data: string): string {
+  //   return CryptoJS.AES.decrypt(data, this.constants.AppProperties.encryptionKey).toString(CryptoJS.enc.Utf8);
+  // }
 
 }
