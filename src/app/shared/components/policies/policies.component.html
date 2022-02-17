@@ -4,21 +4,19 @@
   'display': 'flex',
   'flex-direction' : 'column'
  }" style="width: fit-content; padding: 2rem .5rem">
+
+  <!--  User Policy Card-->
   <mat-card class="mat-elevation-z3" style="width: fit-content; height: fit-content; margin-bottom: 2rem">
     <mat-card-subtitle style="">User Policy</mat-card-subtitle>
     <mat-card-content>
       <!--  form-->
       <div style="width: fit-content" [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
         <!--    first row-->
-        <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Maximum Users</mat-label>
-            <input matInput min="0" type="number" placeholder="Placeholder" required>
-          </mat-form-field>
-        </div>
+        <app-mat-form-field [label]="'Maximum Users'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
       </div>
     </mat-card-content>
   </mat-card>
+  <!--  Password Policy Card-->
   <mat-card class="mat-elevation-z3" style="width: fit-content; height: fit-content">
     <mat-card-subtitle style="">Password Policy</mat-card-subtitle>
     <mat-card-content>
@@ -26,40 +24,19 @@
       <div style="width: fit-content" [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
         <!--    first row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Minimum Characters</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Uppercase Letters</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Lowercase Letters</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
+          <app-mat-form-field [label]="'Minimum Characters'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Uppercase Letters'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Lowercase Letters'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    second row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Special Characters</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Number Length</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Expiry after (x) Days</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
+          <app-mat-form-field [label]="'Special Characters'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Number Length'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Expiry after (x) Days'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    third row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Previous Password Limit</mat-label>
-            <input matInput placeholder="Placeholder">
-          </mat-form-field>
+          <app-mat-form-field [label]="'Previous Password Limit'" [type]="'number'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
       </div>
     </mat-card-content>
