@@ -15,6 +15,7 @@ import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-fie
 import { MatFormFieldComponent } from './components/mat-form-field/mat-form-field.component';
 import { MatUploadButtonComponent } from './components/mat-upload-button/mat-upload-button.component';
 import { MatTextareaFieldComponent } from './components/mat-textarea-field/mat-textarea-field.component';
+import { ProductAccessDetailComponent } from './components/product-access-detail/product-access-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatTextareaFieldComponent } from './components/mat-textarea-field/mat-t
     MatFormFieldComponent,
     MatUploadButtonComponent,
     MatTextareaFieldComponent,
+    ProductAccessDetailComponent,
   ],
   exports: [
     MaterialModule,
