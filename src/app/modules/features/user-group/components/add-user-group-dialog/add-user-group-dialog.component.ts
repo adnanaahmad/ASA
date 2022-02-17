@@ -12,7 +12,13 @@ export class AddUserGroupDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   nextButton() {
-    this.tabIndex === 1 ? this.tabIndex = 0 : this.tabIndex++;
+    if (this.tabIndex === 1) return;
+    this.tabIndex++;
+  }
+  backButton() {
+    if (this.tabIndex === 0) return;
+    this.tabIndex--;
   }
 }

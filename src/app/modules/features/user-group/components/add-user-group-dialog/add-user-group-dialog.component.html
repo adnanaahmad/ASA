@@ -1,11 +1,22 @@
-<mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
-  <mat-tab label="Basic Info">
-    <app-basic-info-user-group></app-basic-info-user-group>
-  </mat-tab>
-  <mat-tab label="Product Access">
-    <app-product-access></app-product-access>
-  </mat-tab>
-</mat-tab-group>
-<button mat-raised-button color="primary" style="height: fit-content; width: 5rem; float: right" (click)="nextButton()">
-  Next
-</button>
+<div style="position: relative" [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
+  <mat-card class="mat-elevation-z0">
+    <button mat-dialog-close mat-icon-button color="primary" style="position: absolute; top: 0; font-size: 1.5rem; right: 0">
+      <mat-icon class="material-icons-outlined">close</mat-icon>
+    </button>
+    <mat-card-title style="text-align: center">Add User Group</mat-card-title>
+    <mat-card-content>
+      <mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
+        <mat-tab label="Basic Info">
+          <app-basic-info-user-group></app-basic-info-user-group>
+        </mat-tab>
+        <mat-tab label="Product Access">
+          <app-product-access></app-product-access>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+    <mat-card-actions style="float: right">
+      <button (click)="backButton()" mat-stroked-button style="margin-right: 1rem">Back</button>
+      <button (click)="nextButton()" mat-flat-button color="primary">Next</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
