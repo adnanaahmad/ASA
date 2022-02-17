@@ -12,6 +12,7 @@ import { OrganizationUserComponent } from './components/organization-user/organi
 import { BasicUserComponent } from './components/basic-user/basic-user.component';
 import { MatChipFieldComponent } from './components/mat-chip-field/mat-chip-field.component';
 import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-field/mat-autocomplete-field.component';
+import { MatFormFieldComponent } from './components/mat-form-field/mat-form-field.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-fie
     BasicUserComponent,
     MatChipFieldComponent,
     MatAutocompleteFieldComponent,
+    MatFormFieldComponent,
   ],
   exports: [
     MaterialModule,
@@ -40,6 +42,7 @@ import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-fie
     BasicUserComponent,
     MatAutocompleteFieldComponent,
     MatChipFieldComponent,
+    MatFormFieldComponent,
   ],
   imports: [
     MaterialModule,

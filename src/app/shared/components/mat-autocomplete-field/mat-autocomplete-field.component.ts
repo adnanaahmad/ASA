@@ -11,6 +11,7 @@ import {map, startWith} from 'rxjs/operators';
 export class MatAutocompleteFieldComponent {
   @Input() label : string = '';
   @Input() placeholder: string = '';
+  @Input() styleField: {} = {};
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions!: Observable<string[]>;

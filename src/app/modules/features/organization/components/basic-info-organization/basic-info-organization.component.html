@@ -18,42 +18,19 @@
       <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
         <!--    first row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Registration No.</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-form-field [styleField]="{'border': '1px solid red'}" [label]="'Name'" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Registration No.'" [placeholder]="'Placeholder'"></app-mat-form-field>
           <app-mat-autocomplete-field [label]="'Service Category'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
 
         </div>
         <!--    second row-->
-        <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Street</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Post code</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-        </div>
+        <app-mat-form-field [styleField]="{'width': '100%'}" [label]="'Street'" [placeholder]="'Placeholder'"></app-mat-form-field>
         <!--    third row-->
-        <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Country</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+        <div>
+          <app-mat-form-field [label]="'Post code'" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'City'" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'State'" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Country'" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    fourth row-->
         <mat-form-field style="width: 100%" appearance="outline">

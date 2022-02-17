@@ -20,6 +20,7 @@ export class MatChipFieldComponent {
   allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
   @Input() label : string = '';
   @Input() placeholder: string = '';
+  @Input() styleField: {} = {};
 
 
   constructor() {
