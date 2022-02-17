@@ -9,6 +9,7 @@ export class MatFormFieldComponent implements OnInit {
   @Input() label : string = '';
   @Input() placeholder: string = '';
   @Input() styleField: {} = {};
+  @Input() required: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
