@@ -6,33 +6,18 @@ style="padding: 2rem 0.5rem;"
     <mat-card-content style="display: flex">
       <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'margin-right': '20px','border': borderService.isBorder ? '1px solid yellow' : 'none', 'height': 'fit-content'}">
         <mat-icon style="font-size: 80px;height: fit-content; width: fit-content" class="material-icons-outlined">home</mat-icon>
-        <div>
-          <input type="file" class="file-input" #fileUpload>
-          <button mat-flat-button color="primary" (click)="fileUpload.click()">
-            <mat-icon>file_upload</mat-icon>
-            <span>Upload</span>
-          </button>
-        </div>
+        <app-mat-upload-button></app-mat-upload-button>
       </div>
       <!--  form-->
       <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
         <!--    first row-->
         <div style="display: flex;">
-          <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-form-field [label]="'Name'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
           <app-mat-autocomplete-field [label]="'Tenant'" placeholder="Placeholder"></app-mat-autocomplete-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Organization</mat-label>
-            <input matInput placeholder="Placeholder" required>
-          </mat-form-field>
+          <app-mat-form-field [label]="'Organization'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    fourth row-->
-        <mat-form-field style="width: 100%" appearance="outline">
-          <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-        </mat-form-field>
+        <app-mat-textarea-field [label]="'Description'" [style]="{'width': '100%'}" [placeholder]="'Ex. It makes me feel...'" ></app-mat-textarea-field>
       </div>
     </mat-card-content>
   </mat-card>
