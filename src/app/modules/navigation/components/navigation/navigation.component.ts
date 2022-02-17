@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, OnDestroy, Component } from '@angular/core';
+import {ChangeDetectorRef, OnDestroy, Component, OnInit} from '@angular/core';
 import {HelperService} from "../../../../shared/services/common/helper/helper.service";
 import {
   BreakpointObserver,
@@ -13,7 +13,7 @@ import {ConditionalBorderService} from "../../../../shared/services/core/debuggi
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnDestroy {
+export class NavigationComponent implements OnDestroy, OnInit {
   events: string[] = [];
   isDark = false;
   opened: boolean = false;
@@ -70,6 +70,10 @@ export class NavigationComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnInit() {
+    this.styleManager.isDark = false;
   }
 
   ngOnDestroy(): void {
