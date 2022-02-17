@@ -16,6 +16,7 @@ import { MatFormFieldComponent } from './components/mat-form-field/mat-form-fiel
 import { MatUploadButtonComponent } from './components/mat-upload-button/mat-upload-button.component';
 import { MatTextareaFieldComponent } from './components/mat-textarea-field/mat-textarea-field.component';
 import { ProductAccessDetailComponent } from './components/product-access-detail/product-access-detail.component';
+import { FwaAccessControlComponent } from './components/fwa-access-control/fwa-access-control.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProductAccessDetailComponent } from './components/product-access-detail
     MatUploadButtonComponent,
     MatTextareaFieldComponent,
     ProductAccessDetailComponent,
+    FwaAccessControlComponent,
   ],
   exports: [
     MaterialModule,
