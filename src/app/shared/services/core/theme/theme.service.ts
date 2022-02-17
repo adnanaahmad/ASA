@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   isDark = false;
   /**
-   * toggleDarkTheme() function applies dynamic theme only on app-navigation component
+   * toggleDarkTheme() function applies dynamic theme only on body,
+   * rest is handled by material
    * */
   toggleDarkTheme() {
     if (this.isDark) {
@@ -15,5 +16,9 @@ export class ThemeService {
       document.body.classList.add('dark-theme');
       this.isDark = true;
     }
+  }
+  resetTheme(){
+    document.body.classList.remove('dark-theme');
+    this.isDark = false;
   }
 }

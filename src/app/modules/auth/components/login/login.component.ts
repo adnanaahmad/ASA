@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ThemeService} from "../../../../shared/services/core/theme/theme.service";
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private styleManager: ThemeService,
   ) {
   }
   /**
    * In this lifecycle hook, we have initialized loginForm with the required fields.
    */
   ngOnInit(): void {
+    this.styleManager.resetTheme();
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
