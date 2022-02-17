@@ -15,6 +15,6 @@ export class TenantComponent implements OnInit {
   ngOnInit(): void {
   }
   openAddTenantDialog() {
-    this.dialog.open(AddTenantDialogComponent);
+    this.dialog.open(AddTenantDialogComponent, { disableClose: true });
   }
 }

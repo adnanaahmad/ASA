@@ -16,6 +16,6 @@ export class DepartmentComponent implements OnInit {
   }
 
   openAddDepartmentDialog() {
-    this.dialog.open(AddDepartmentDialogComponent);
+    this.dialog.open(AddDepartmentDialogComponent, { disableClose: true });
   }
 }

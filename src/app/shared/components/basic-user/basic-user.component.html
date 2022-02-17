@@ -1,6 +1,5 @@
-<div [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
-  <mat-card class="mat-elevation-z0">
-    <mat-card-title style="text-align: center">Add User</mat-card-title>
+<div [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid orange' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
+  <mat-card class="mat-elevation-z0" [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none'}">
     <mat-card-subtitle style="">{{title}}</mat-card-subtitle>
     <mat-card-content style="display: flex">
       <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'margin-right': '20px','border': borderService.isBorder ? '1px solid yellow' : 'none', 'height': 'fit-content'}">
@@ -42,9 +41,5 @@
         <app-mat-textarea-field [label]="'Description'" [style]="{'width': '100%'}" [placeholder]="'Ex. It makes me feel...'" ></app-mat-textarea-field>
       </div>
     </mat-card-content>
-    <mat-card-actions style="float: right">
-      <button mat-stroked-button style="margin-right: 1rem">Cancel</button>
-      <button mat-flat-button color="primary">Save</button>
-    </mat-card-actions>
   </mat-card>
 </div>

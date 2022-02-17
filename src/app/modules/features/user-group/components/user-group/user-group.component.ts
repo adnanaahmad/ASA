@@ -15,6 +15,6 @@ export class UserGroupComponent implements OnInit {
   ngOnInit(): void {
   }
   openAddUserGroupDialog() {
-    this.dialog.open(AddUserGroupDialogComponent);
+    this.dialog.open(AddUserGroupDialogComponent, { disableClose: true });
   }
 }
