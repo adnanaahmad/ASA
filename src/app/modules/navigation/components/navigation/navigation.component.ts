@@ -67,7 +67,7 @@ export class NavigationComponent implements OnDestroy, OnInit {
               media: MediaMatcher,
               private styleManager: ThemeService,
               public borderService: ConditionalBorderService) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
