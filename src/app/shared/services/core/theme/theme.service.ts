@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
 })
 export class ThemeService {
   isDark = false;
+  /**
+   * toggleDarkTheme() function applies dynamic theme only on app-navigation component
+   * */
   toggleDarkTheme() {
     let app = document.getElementsByTagName("app-navigation")[0];
     if (this.isDark) {
