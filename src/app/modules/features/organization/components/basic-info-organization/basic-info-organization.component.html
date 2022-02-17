@@ -6,31 +6,25 @@
     <mat-card-content style="display: flex">
       <div style="display: flex; flex-direction: column; align-items: center" [ngStyle]="{'margin-right': '20px','border': borderService.isBorder ? '1px solid yellow' : 'none', 'height': 'fit-content'}">
         <mat-icon style="font-size: 80px;height: fit-content; width: fit-content" class="material-icons-outlined">home</mat-icon>
-        <div>
-          <input type="file" class="file-input" #fileUpload>
-          <button mat-flat-button color="primary" (click)="fileUpload.click()">
-            <mat-icon>file_upload</mat-icon>
-            <span>Upload</span>
-          </button>
-        </div>
+        <app-mat-upload-button></app-mat-upload-button>
       </div>
       <!--  form-->
       <div [ngStyle]="{'border': borderService.isBorder ? '1px solid green' : 'none', 'height': 'fit-content'}">
         <!--    first row-->
         <div style="display: flex;">
-          <app-mat-form-field [label]="'Name'" [required]="true" [styleField]="{'border': '1px solid red'}" [placeholder]="'Placeholder'"></app-mat-form-field>
-          <app-mat-form-field [label]="'Registration No.'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Name'" [type]="'string'" [required]="true" [style]="{'border': '1px solid red'}" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Registration No.'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
           <app-mat-autocomplete-field [label]="'Service Category'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
 
         </div>
         <!--    second row-->
-        <app-mat-form-field [label]="'Street'" [styleField]="{'width': '100%'}" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+        <app-mat-form-field [label]="'Street'" [type]="'string'" [style]="{'width': '100%'}" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         <!--    third row-->
         <div>
-          <app-mat-form-field [label]="'Post code'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
-          <app-mat-form-field [label]="'City'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
-          <app-mat-form-field [label]="'State'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
-          <app-mat-form-field [label]="'Country'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Post code'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'City'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'State'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-form-field [label]="'Country'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    fourth row-->
         <mat-form-field style="width: 100%" appearance="outline">

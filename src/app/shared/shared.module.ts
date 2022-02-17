@@ -13,6 +13,7 @@ import { BasicUserComponent } from './components/basic-user/basic-user.component
 import { MatChipFieldComponent } from './components/mat-chip-field/mat-chip-field.component';
 import { MatAutocompleteFieldComponent } from './components/mat-autocomplete-field/mat-autocomplete-field.component';
 import { MatFormFieldComponent } from './components/mat-form-field/mat-form-field.component';
+import { MatUploadButtonComponent } from './components/mat-upload-button/mat-upload-button.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatFormFieldComponent } from './components/mat-form-field/mat-form-fiel
     MatChipFieldComponent,
     MatAutocompleteFieldComponent,
     MatFormFieldComponent,
+    MatUploadButtonComponent,
   ],
   exports: [
     MaterialModule,
@@ -43,6 +45,7 @@ import { MatFormFieldComponent } from './components/mat-form-field/mat-form-fiel
     MatAutocompleteFieldComponent,
     MatChipFieldComponent,
     MatFormFieldComponent,
+    MatUploadButtonComponent,
   ],
   imports: [
     MaterialModule,
