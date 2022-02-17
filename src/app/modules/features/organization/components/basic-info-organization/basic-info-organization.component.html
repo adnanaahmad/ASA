@@ -27,10 +27,7 @@
           <app-mat-form-field [label]="'Country'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--    fourth row-->
-        <mat-form-field style="width: 100%" appearance="outline">
-          <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-        </mat-form-field>
+        <app-mat-textarea-field [label]="'Description'" [style]="{'width': '100%'}" [placeholder]="'Ex. It makes me feel...'" ></app-mat-textarea-field>
       </div>
     </mat-card-content>
   </mat-card>
