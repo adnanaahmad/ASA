@@ -14,16 +14,16 @@ export class ConstantService {
    * all the apiRoutes are declared here.
    */
 
-  static apiRoutes = {
-    getToken: `${environment.ai_web_server}/oauth/token?grant_type=password`,
-    refreshToken: `${environment.ai_web_server}/oauth/token?grant_type=refresh_token`,
-    principalDataURL: `${environment.ai_cmt_server}/case/principal`,
-    userSecurityInfoURL: `${environment.ai_cmt_server}/case/getusersecurityinfo`,
-    cmtConfigurationsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=cmt_configuration`,
-    localeSettingsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=locale_setting`,
-    userInfoURL: `${environment.ai_web_server}/rest/userInfo`,
-    aiWebNewWindowURL: `${environment.ai_web_server}/Login.jsp?embedMode=newWindow&session='`
-  };
+  // static apiRoutes = {
+  //   getToken: `${environment.ai_web_server}/oauth/token?grant_type=password`,
+  //   refreshToken: `${environment.ai_web_server}/oauth/token?grant_type=refresh_token`,
+  //   principalDataURL: `${environment.ai_cmt_server}/case/principal`,
+  //   userSecurityInfoURL: `${environment.ai_cmt_server}/case/getusersecurityinfo`,
+  //   cmtConfigurationsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=cmt_configuration`,
+  //   localeSettingsURL: `${environment.ai_cmt_server}/case/getCaseList?instanceID=alivia&moduleName=locale_setting`,
+  //   userInfoURL: `${environment.ai_web_server}/rest/userInfo`,
+  //   aiWebNewWindowURL: `${environment.ai_web_server}/Login.jsp?embedMode=newWindow&session='`
+  // };
 
   /**
    * all the api methods are declared here.
