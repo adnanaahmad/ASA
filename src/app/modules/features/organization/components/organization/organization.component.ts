@@ -11,18 +11,15 @@ import {AddOrganizationDialogComponent} from "../add-organization-dialog/add-org
 export class OrganizationComponent implements OnInit {
   hide: boolean = true;
   tableData: Array<any> = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+    {row: '1', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '2', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '3', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '4', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '5', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '6', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '7', organization: 'Claim Secure', organizationEmail: 'cs@gmail.com', registrationId: '2468', products: 'FWA', tenants: '2', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
   ];
-  tableColumns: Array<string> = ['position', 'name', 'weight', 'symbol'];
+  tableColumns: Array<string> = ['row', 'organization', 'organizationEmail', 'registrationId', 'products', 'tenants', 'users', 'adminUser', 'adminEmail', 'view', 'edit', 'remove', 'active'];
   constructor(public borderService: ConditionalBorderService, public dialog: MatDialog) { }
 
   ngOnInit(): void {

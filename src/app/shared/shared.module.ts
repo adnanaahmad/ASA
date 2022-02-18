@@ -17,6 +17,8 @@ import { MatUploadButtonComponent } from './components/mat-upload-button/mat-upl
 import { MatTextareaFieldComponent } from './components/mat-textarea-field/mat-textarea-field.component';
 import { ProductAccessDetailComponent } from './components/product-access-detail/product-access-detail.component';
 import { FwaAccessControlComponent } from './components/fwa-access-control/fwa-access-control.component';
+import { MatIconButtonComponent } from './components/mat-icon-button/mat-icon-button.component';
+import { CamelcaseToWordPipe } from './pipes/camecaseToWord/camelcase-to-word.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { FwaAccessControlComponent } from './components/fwa-access-control/fwa-a
     MatTextareaFieldComponent,
     ProductAccessDetailComponent,
     FwaAccessControlComponent,
+    MatIconButtonComponent,
+    CamelcaseToWordPipe,
   ],
   exports: [
     MaterialModule,
