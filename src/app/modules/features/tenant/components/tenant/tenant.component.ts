@@ -9,7 +9,17 @@ import {AddTenantDialogComponent} from "../add-tenant-dialog/add-tenant-dialog.c
   styleUrls: ['./tenant.component.scss']
 })
 export class TenantComponent implements OnInit {
+  tableData: Array<any> = [
+    {row: '1', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '2', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '3', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '4', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '5', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '6', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
+    {row: '7', tenant: 'Advise Health', tenantId: '23456' , organization: 'Claim Secure', registrationId: '2468', products: 'FWA', users: '50', adminUser: 'George', adminEmail: 'george@hotmail.com', view: '', edit: '', remove: '', active: '' },
 
+  ];
+  tableColumns: Array<string> = ['row', 'tenant', 'tenantId', 'organization', 'registrationId', 'products', 'users', 'adminUser', 'adminEmail', 'view', 'edit', 'remove', 'active'];
   constructor(public borderService: ConditionalBorderService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
