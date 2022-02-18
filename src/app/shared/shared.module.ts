@@ -18,7 +18,7 @@ import { MatTextareaFieldComponent } from './components/mat-textarea-field/mat-t
 import { ProductAccessDetailComponent } from './components/product-access-detail/product-access-detail.component';
 import { FwaAccessControlComponent } from './components/fwa-access-control/fwa-access-control.component';
 import { MatIconButtonComponent } from './components/mat-icon-button/mat-icon-button.component';
-import { CamelcaseToWordPipe } from './pipes/camecaseToWord/camelcase-to-word.pipe';
+import { CamelcaseToWordPipe } from './pipes/camecase-to-word/camelcase-to-word.pipe';
 
 @NgModule({
   declarations: [
