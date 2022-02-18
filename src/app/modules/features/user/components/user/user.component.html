@@ -12,5 +12,5 @@
       <button mat-menu-item (click)="openAddUserDialog('tenant')">Tenant Level User</button>
     </mat-menu>
   </div>
-  <app-table></app-table>
+  <app-table [tableData]="tableData" [tableColumns]="tableColumns"></app-table>
 </div>
