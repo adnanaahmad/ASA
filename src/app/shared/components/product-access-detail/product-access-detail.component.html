@@ -1,25 +1,19 @@
-<div style="position: relative" [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
-  <mat-card class="mat-elevation-z0">
-    <button mat-dialog-close mat-icon-button color="primary" style="position: absolute; top: 0; font-size: 1.5rem; right: 0">
-      <mat-icon class="material-icons-outlined">close</mat-icon>
-    </button>
-    <mat-card-title style="text-align: center">Product Access</mat-card-title>
-    <mat-card-content>
-      <mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
-        <mat-tab label="FWA">
-          <app-fwa-access-control></app-fwa-access-control>
-        </mat-tab>
-        <mat-tab label="CMT">
-
-        </mat-tab>
-        <mat-tab label="SIMULATOR">
-
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card-content>
-    <mat-card-actions style="float: right">
-      <button (click)="backButton()" mat-stroked-button style="margin-right: 1rem">Back</button>
-      <button (click)="nextButton()" mat-flat-button color="primary">Next</button>
-    </mat-card-actions>
-  </mat-card>
+<div mat-dialog-container style="position: relative" [ngStyle]="{'border': borderService.isBorder ? '1px solid red' : 'none'}">
+  <app-mat-dialog-close-button [style]="{'position': 'absolute', 'top': '0', 'right': '0'}"></app-mat-dialog-close-button>
+  <h1 mat-dialog-title style="text-align: center">Product Access</h1>
+  <mat-dialog-content>
+    <mat-tab-group dynamicHeight [(selectedIndex)]="tabIndex">
+      <mat-tab label="FWA">
+        <app-fwa-access-control></app-fwa-access-control>
+      </mat-tab>
+      <mat-tab label="CMT">
+      </mat-tab>
+      <mat-tab label="SIMULATOR">
+      </mat-tab>
+    </mat-tab-group>
+  </mat-dialog-content>
+  <div mat-dialog-actions style="float: right">
+    <button (click)="backButton()" mat-stroked-button style="margin-right: 1rem">Back</button>
+    <button (click)="nextButton()" mat-flat-button color="primary">Next</button>
+  </div>
 </div>
