@@ -19,6 +19,7 @@ import { ProductAccessDetailComponent } from './components/product-access-detail
 import { FwaAccessControlComponent } from './components/fwa-access-control/fwa-access-control.component';
 import { MatIconButtonComponent } from './components/mat-icon-button/mat-icon-button.component';
 import { CamelcaseToWordPipe } from './pipes/camecase-to-word/camelcase-to-word.pipe';
+import { MatDialogCloseButtonComponent } from './components/mat-dialog-close-button/mat-dialog-close-button.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CamelcaseToWordPipe } from './pipes/camecase-to-word/camelcase-to-word.
     FwaAccessControlComponent,
     MatIconButtonComponent,
     CamelcaseToWordPipe,
+    MatDialogCloseButtonComponent,
   ],
   exports: [
     MaterialModule,
@@ -57,6 +59,7 @@ import { CamelcaseToWordPipe } from './pipes/camecase-to-word/camelcase-to-word.
     MatFormFieldComponent,
     MatUploadButtonComponent,
     MatTextareaFieldComponent,
+    MatDialogCloseButtonComponent,
   ],
   imports: [
     MaterialModule,
