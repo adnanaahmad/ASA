@@ -1,19 +1,15 @@
-<div style="position: relative" [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}">
-  <mat-card class="mat-elevation-z0">
-    <button mat-dialog-close mat-icon-button color="primary" style="position: absolute; top: 0; font-size: 1.5rem; right: 0">
-      <mat-icon class="material-icons-outlined">close</mat-icon>
-    </button>
-    <mat-card-title style="text-align: center">Add User</mat-card-title>
-    <mat-card-content>
-      <ng-container [ngSwitch]="userType">
-        <app-tenant-user *ngSwitchCase="'tenant'" [title] = "'Tenant Level User'"></app-tenant-user>
-        <app-organization-user *ngSwitchCase="'organization'" [title] = "'Organization Level User'"></app-organization-user>
-        <app-basic-user *ngSwitchCase="'basic'" [title] = "'Basic User'"></app-basic-user>
-      </ng-container>
-    </mat-card-content>
-    <mat-card-actions style="float: right">
-      <button mat-stroked-button style="margin-right: 1rem" mat-dialog-close>Cancel</button>
-      <button mat-flat-button color="primary">Save</button>
-    </mat-card-actions>
-  </mat-card>
+<div mat-dialog-container style="position: relative" [ngStyle]="{'border': borderService.isBorder ? '1px solid red' : 'none'}">
+  <app-mat-dialog-close-button [style]="{'position': 'absolute', 'top': '0', 'right': '0'}"></app-mat-dialog-close-button>
+  <h1 mat-dialog-title style="text-align: center">Add User</h1>
+  <mat-dialog-content>
+    <ng-container [ngSwitch]="userType">
+      <app-tenant-user *ngSwitchCase="'tenant'" [title] = "'Tenant Level User'"></app-tenant-user>
+      <app-organization-user *ngSwitchCase="'organization'" [title] = "'Organization Level User'"></app-organization-user>
+      <app-basic-user *ngSwitchCase="'basic'" [title] = "'Basic User'"></app-basic-user>
+    </ng-container>
+  </mat-dialog-content>
+  <div mat-dialog-actions style="float: right">
+    <button mat-stroked-button style="margin-right: 1rem" mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="primary">Save</button>
+  </div>
 </div>
