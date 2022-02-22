@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
   openAddUserDialog(modalType: string) {
-   let dialog = this.dialog.open(AddUserDialogComponent, { disableClose: true });
+   let dialog = this.dialog.open(AddUserDialogComponent, { disableClose: true, autoFocus: false });
    dialog.componentInstance.userType = modalType;
   }
 }

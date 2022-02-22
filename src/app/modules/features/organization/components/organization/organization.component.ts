@@ -26,6 +26,6 @@ export class OrganizationComponent implements OnInit {
   }
 
   openAddOrganizationDialog() {
-    this.dialog.open(AddOrganizationDialogComponent, { disableClose: true });
+    this.dialog.open(AddOrganizationDialogComponent, { disableClose: true, autoFocus: false });
   }
 }

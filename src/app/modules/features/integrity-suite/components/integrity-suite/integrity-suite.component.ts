@@ -18,6 +18,6 @@ export class IntegritySuiteComponent implements OnInit {
   ngOnInit(): void {
   }
   openProductAccessDetailDialog() {
-    this.dialog.open(ProductAccessDetailComponent, { disableClose: true });
+    this.dialog.open(ProductAccessDetailComponent, { disableClose: true, autoFocus: false });
   }
 }
