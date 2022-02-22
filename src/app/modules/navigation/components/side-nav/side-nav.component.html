@@ -1,0 +1,6 @@
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let item of sideNavItems" [value]="item" [routerLink]="[item.route]">
+    <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+    <div mat-line>{{item.name}}</div>
+  </mat-list-option>
+</mat-selection-list>
