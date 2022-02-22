@@ -41,12 +41,9 @@
           <app-mat-form-field [label]="'Country'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
         <!--  seventh row-->
-        <div style="display: flex;">
-          <app-mat-autocomplete-field [label]="'Tenant'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
-          <app-mat-autocomplete-field [label]="'Organization'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
-        </div>
+        <app-mat-autocomplete-field [label]="'Organization'" [placeholder]="'Placeholder'" ></app-mat-autocomplete-field>
         <!--  eighth row-->
-        <app-mat-chip-field [label]="'User Group'" [placeholder]="'New User Group...'" ></app-mat-chip-field>
+        <app-mat-chip-field [label]="'Tenant'" [placeholder]="'New Tenant...'" ></app-mat-chip-field>
       </div>
     </mat-card-content>
   </mat-card>
