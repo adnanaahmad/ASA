@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ConditionalBorderService {
   public isBorder: boolean;
   constructor() {
-    this.isBorder = true;
+    this.isBorder = false;
   }
   toggleBorder() {
     this.isBorder = !this.isBorder;
