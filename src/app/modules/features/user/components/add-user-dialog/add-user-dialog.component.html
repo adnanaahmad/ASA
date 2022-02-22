@@ -4,7 +4,7 @@
   <mat-dialog-content>
     <ng-container [ngSwitch]="userType">
       <app-tenant-user *ngSwitchCase="'tenant'" [title] = "'Tenant Level User'"></app-tenant-user>
-      <app-organization-user *ngSwitchCase="'organization'" [title] = "'Organization Level User'"></app-organization-user>
+      <app-organization-user *ngSwitchCase="'organization'" [title] = "'Organization Level User'" [class]="'mat-elevation-z0'" [style]="{'border': borderService.isBorder ? '1px solid green' : 'none'}"></app-organization-user>
       <app-basic-user *ngSwitchCase="'basic'" [title] = "'Basic User'"></app-basic-user>
     </ng-container>
   </mat-dialog-content>

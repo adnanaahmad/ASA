@@ -8,6 +8,8 @@ import {ConditionalBorderService} from "../../services/core/debugging/conditiona
 })
 export class OrganizationUserComponent implements OnInit {
   @Input() title : string = '';
+  @Input() class : string = '';
+  @Input() style : {} = {};
   constructor(public borderService: ConditionalBorderService) { }
 
   ngOnInit(): void {
