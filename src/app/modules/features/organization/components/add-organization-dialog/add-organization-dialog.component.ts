@@ -13,7 +13,7 @@ export class AddOrganizationDialogComponent implements OnInit {
   ngOnInit(): void {
   }
   nextButton() {
-    if (this.tabIndex === 3) return;
+    if (this.tabIndex === 4) return;
     this.tabIndex++;
   }
   backButton() {

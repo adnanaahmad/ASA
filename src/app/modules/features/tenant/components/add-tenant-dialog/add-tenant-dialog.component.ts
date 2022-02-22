@@ -14,7 +14,7 @@ export class AddTenantDialogComponent implements OnInit {
   }
 
   nextButton() {
-    if (this.tabIndex === 2) return;
+    if (this.tabIndex === 3) return;
     this.tabIndex++;
   }
   backButton() {
