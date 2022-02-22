@@ -1,7 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Subscription} from "rxjs";
-import {NavigationService} from "../../services/navigation.service";
-import {MatSidenav} from "@angular/material/sidenav";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,9 +6,7 @@ import {MatSidenav} from "@angular/material/sidenav";
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-  @Input() mobileQuery!: MediaQueryList;
-  @ViewChild('snav') sideNavComponent!: MatSidenav;
-  subscription!: Subscription;
+
   sideNavItems: any =
     [
       {
@@ -55,15 +50,7 @@ export class SideNavComponent implements OnInit {
         route: 'alivia-services'
       }
     ];
-  constructor(private navigationService: NavigationService) { }
+  constructor() { }
   ngOnInit(): void {
-    this.subscription = this.navigationService.sideNavToggleObservable.subscribe((res) => {
-      if (res !== -1 && this.sideNavComponent) {
-        this.sideNavComponent.toggle().then();
-      }
-    });
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
