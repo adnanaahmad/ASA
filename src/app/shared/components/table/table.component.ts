@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import {ProductAccessDetailComponent} from "../product-access-detail/product-access-detail.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-table',
@@ -12,7 +14,7 @@ export class TableComponent implements OnInit {
   displayedColumns!: Array<string>;
   dataSource!: MatTableDataSource<Array<any>>;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.displayedColumns = this.tableColumns;
@@ -22,5 +24,8 @@ export class TableComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  openProductAccessDetailDialog() {
+    this.dialog.open(ProductAccessDetailComponent, { disableClose: true, autoFocus: false });
   }
 }
