@@ -17,7 +17,7 @@
           </ng-container>
           <!-- action buttons-->
           <app-mat-icon-button *ngSwitchCase="'view'" [icon]="'visibility'"></app-mat-icon-button>
-          <app-mat-icon-button *ngSwitchCase="'edit'" [icon]="'edit'" [matMenuTriggerFor]="editMenu"></app-mat-icon-button>
+          <app-mat-icon-button *ngSwitchCase="'edit'" [icon]="'edit'"></app-mat-icon-button>
           <app-mat-icon-button *ngSwitchCase="'remove'" [icon]="'delete'"></app-mat-icon-button>
           <app-mat-icon-button *ngSwitchCase="'active'" [icon]="'toggle_on'"></app-mat-icon-button>
         </ng-container>
@@ -27,12 +27,7 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  <!-- edit menu-->
-  <mat-menu #editMenu="matMenu">
-    <button mat-menu-item>Edit Details</button>
-    <button mat-menu-item (click)="openProductAccessDetailDialog()">Edit Product Access</button>
-  </mat-menu>
+  
   <!-- Row shown when there is no matching data. -->
   <tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
