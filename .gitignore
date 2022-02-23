@@ -11,6 +11,9 @@
 /node_modules
 /package-lock.json
 
+# documentation
+/documentation
+
 # profiling files
 chrome-profiler-events*.json
 
