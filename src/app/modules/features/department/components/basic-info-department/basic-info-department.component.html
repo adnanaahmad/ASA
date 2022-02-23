@@ -13,10 +13,10 @@ style="padding: 2rem 0.5rem;"
         <!--    first row-->
         <div style="display: flex;">
           <app-mat-form-field [label]="'Name'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+          <app-mat-autocomplete-field [label]="'Organization'" placeholder="Placeholder"></app-mat-autocomplete-field>
           <app-mat-autocomplete-field [label]="'Tenant'" placeholder="Placeholder"></app-mat-autocomplete-field>
-          <app-mat-form-field [label]="'Organization'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
-        <!--    fourth row-->
+        <!--    second row-->
         <app-mat-textarea-field [label]="'Description'" [style]="{'width': '100%'}" [placeholder]="'Ex. It makes me feel...'" ></app-mat-textarea-field>
       </div>
     </mat-card-content>

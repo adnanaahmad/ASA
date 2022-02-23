@@ -1,5 +1,5 @@
 <div [ngStyle]="{'display': 'flex','height': 'fit-content', 'border': borderService.isBorder ? '1px solid red' : 'none', 'justify-content': 'center', 'align-items': 'center'}"
-     style="padding: 2rem 0.5rem;"
+     style="padding: 2rem 0.5rem; margin: auto"
 >
   <mat-card class="mat-elevation-z3">
     <mat-card-subtitle style="">{{title}} Form</mat-card-subtitle>
@@ -27,10 +27,13 @@
         <div style="display: flex;">
           <app-mat-form-field [label]="'Post code'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
           <app-mat-form-field [label]="'City'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
+        </div>
+        <!--    fifth row-->
+        <div style="display: flex">
           <app-mat-form-field [label]="'State'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
           <app-mat-form-field [label]="'Country'" [type]="'string'" [required]="true" [placeholder]="'Placeholder'"></app-mat-form-field>
         </div>
-        <!--    fifth row-->
+        <!--    sixth row-->
         <app-mat-textarea-field [label]="'Description'" [style]="{'width': '100%'}" [placeholder]="'Ex. It makes me feel...'" ></app-mat-textarea-field>
       </div>
     </mat-card-content>
