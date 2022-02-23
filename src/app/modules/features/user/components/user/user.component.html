@@ -8,8 +8,8 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openAddUserDialog('basic')">Basic User</button>
-      <button mat-menu-item (click)="openAddUserDialog('organization')">Organization Level User</button>
-      <button mat-menu-item (click)="openAddUserDialog('tenant')">Tenant Level User</button>
+      <button mat-menu-item (click)="openAddUserDialog('organization')">Organizational User</button>
+      <button mat-menu-item (click)="openAddUserDialog('tenant')">Tenant User</button>
     </mat-menu>
   </div>
   <app-table [tableData]="tableData" [tableColumns]="tableColumns"></app-table>
