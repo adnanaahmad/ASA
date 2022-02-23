@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ConstantService} from "../../../../shared/services/common/constants/constant.service";
 
 @Component({
   selector: 'app-side-nav',
@@ -7,50 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  sideNavItems: any =
-    [
-      {
-        name: 'Alivia Program Integrity Suite',
-        icon: 'window',
-        route: 'integrity-suite'
-      },
-      {
-        name: 'Organization',
-        icon: 'home',
-        route: 'organization'
-      },
-      {
-        name: 'Tenants',
-        icon: 'business',
-        route: 'tenant'
-      },
-      {
-        name: 'Departments',
-        icon: 'apartment',
-        route: 'department'
-      },
-      {
-        name: 'User Groups',
-        icon: 'group',
-        route: 'user-group'
-      },
-      {
-        name: 'Users',
-        icon: 'person_outline',
-        route: 'user'
-      },
-      {
-        name: 'Security Policies',
-        icon: 'lock',
-        route: 'security-policy'
-      },
-      {
-        name: 'Alivia Services',
-        icon: 'view_in_ar',
-        route: 'alivia-services'
-      }
-    ];
-  constructor() { }
+  sideNavItems!: Array<any>;
+  constructor(private constant: ConstantService) { }
   ngOnInit(): void {
+    this.sideNavItems = this.constant.sideNavigationList;
   }
 }
