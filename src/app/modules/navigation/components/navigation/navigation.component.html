@@ -1,8 +1,8 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="app-nav-container" [class.app-is-mobile]="mobileQuery.matches">
   <!--  toolbar-->
   <app-toolbar></app-toolbar>
   <!--  side nav-->
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav-container class="app-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <app-side-nav></app-side-nav>
     </mat-sidenav>
